@@ -114,12 +114,48 @@ If years of education (X) is a necessary condition for job satisfaction ≥ 6 (Y
 ## Collinearity Diagnostics and VIF
 
 # Replication Results
-Results
-## In‐Sample Fit versus Out‐of‐Sample Performance
+
+In this chapter, we build on the models developed in the previous sections using the ISSP dataset to explore two key ideas.\
+First, we examine whether a model that fits its training data well (i.e., with high explanatory power) also performs well in predicting new data. Second, we assess whether a model trained in one specific context (such as one country) can generalize to different contexts.\
+All analyses were conducted in R and later replicated in Python to ensure robustness. Since results were consistent across both environments, we report only the R-based plots here for clarity.
 
 ## Model Variability within Context
 
-## Cross‐Country Generalizability of Predictive Power
+To address the first question, we focused on the German dataset and built 1000 models using repeated random sampling. In each replication, we drew a sample of 500 observations, then split it into two equally sized subsets: one for training and one as a holdout set.\
+Each model was trained on its training set, and we computed two in-sample metrics to evaluate explanatory power: R-squared and root mean square error (RMSE). We then used the same model to generate predictions on the holdout set and calculated the out-of-sample RMSE as a measure of predictive power.\
+Figures 1 and 2 illustrate how these two types of performance relate. In Figure 1, we plot R-squared (x-axis) against out-of-sample RMSE (y-axis); in Figure 2, the x-axis is the in-sample RMSE.\
+In both plots, we observe that models with similar in-sample performance can vary widely in their out-of-sample predictive accuracy. This means that high explanatory power does not guarantee high predictive power.\
+Interestingly, Figure 1 shows that higher R-squared values tend to be associated with higher prediction error, suggesting possible overfitting. Similarly, Figure 2 shows a negative trend between in-sample and out-of-sample RMSE: models that fit the training data very well often perform worse on new data.
+
+To explore this further, we zoomed in on the models with an R-squared close to that of the original German model (R² between 0.366 and 0.386). Although these models all explain roughly the same proportion of variance, their prediction errors still vary greatly, from 0.75 to 0.94, meaning a 25% increase in error between the best and worst cases.
+
+![Relationship between (in‐sample) R² and out‐of‐sample root mean square error (RMSE) ](images/Fig1a.jpg)
+
+![Relationship between in‐sample RMSE and out‐of‐sample RMSE](images/Fig1b-2.jpg)
+
+![Density plot of predictive power for subsamples with 0.366 \< R² \< 0.386. RMSE, root mean square error](images/Fig 3.jpg)
+
+This first analysis highlights the importance of jointly evaluating both explanatory and predictive power when assessing a model’s performance. Our goal is to caution researchers against drawing prescriptive conclusions based solely on a model’s in-sample fit, such as R-squared or in-sample RMSE, without verifying how well the model performs on unseen data.\
+As we have shown, models that explain a large proportion of variance in the training data do not necessarily perform well in predicting new observations. In fact, we observed that some models with high explanatory power exhibited relatively poor predictive performance, indicating a risk of overfitting.\
+A well-designed model should not only provide a good fit to its own data but also be able to generalize to new samples. However, there is no fixed relationship between in-sample metrics (e.g., R-squared, RMSE) and out-of-sample performance, which makes the predictive evaluation an essential step.\
+While explanatory modelling focuses on understanding relationships between variables, through the significance, direction, and size of coefficients, predictive modelling aims to accurately forecast new outcomes. These two goals are distinct, but not mutually exclusive.\
+By adopting an EP (Explanatory and Predictive) approach, researchers can strike a balance: developing models that both explain the data and support reliable prescriptive insights. Ultimately, when the objective is to derive actionable conclusions, predictive power must be explicitly assessed, explanatory power alone is not enough.
+
+## Cross Country Generalizability of Predictive Power
+
+In the second part of our analysis, we explore whether a model trained in one country can predict outcomes in other countries.\
+We used the full ISSP data for Germany, the USA, and Japan, building one model per country. The bar chart in Figure 4 shows the R-squared of each model on its own country’s data, indicating how well it explains variation within its own context.\
+The heatmap in Figure 5 shows the out-of-sample RMSE when each country-specific model is used to predict data from the other countries. This allows us to compare generalizability across contexts.\
+From the results, the Japanese model shows to have the highest R-squared (0.508), meaning it fits its own data well. However, it performs poorly when predicting the USA data, suggesting it may be overfitting to context-specific patterns that don’t transfer.\
+Furthermore, no other model predicts the Japanese data well, indicating that job satisfaction in Japan may follow idiosyncratic patterns not captured by models trained elsewhere.\
+The German model has the lowest explanatory power (R² = 0.384), but its data are reasonably well predicted by both the USA and Japan models. This may mean that the German model omits some relevant predictors or suffers from multicollinearity. At the same time, the predictors that matter in the USA and Japan might partially capture variation in the German context.
+
+![Ability of each country-specific model to fit its own country data](images/Figure 4.jpg)
+
+![Predictive power of country-specific models](images/Figure 5.jpg)
+
+This second analysis shows that models trained in one country do not necessarily generalize well to other countries. Patterns that hold in one cultural or institutional context may not apply elsewhere.\
+We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability.
 
 # Extension: Determinants of Job Satisfaction
 
