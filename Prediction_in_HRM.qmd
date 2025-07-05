@@ -1,0 +1,144 @@
+---
+title: "Prediction in Human Recourse Managment"
+subtitle: "A gab between rhetoric and reality"
+
+author: 
+    - name: "Abhinna Shah"
+    - name: "Ariel Jeremi Wowor"
+    - name: "Bianca Ricci"
+    - name: "Marcel Dieti"
+
+abstract-title: "Abstract"
+abstract: "we will write a abstract here at the very end."
+
+date: today
+
+format: pdf
+toc: true
+
+editor: visual
+bibliography: references.bib
+---
+
+# Introduction
+
+Human Resource Management (HRM) research frequently employs quantitative models to explain relationships among organizational practices and employee outcomes. Explanatory modeling—grounded in inferential statistics and theory testing—has dominated the field, with scholars emphasizing in‐sample fit indices such as R², F‐statistics, and structural equation‐model (SEM) fit measures (e.g., CFI, RMSEA) to validate theoretical propositions. By contrast, predictive modeling focuses on out‐of‐sample performance, assessing a model’s ability to forecast new observations via metrics such as root mean squared error (RMSE) and mean absolute error (MAE) [@Sarstedt2021]. While both approaches serve distinct scientific objectives—explanation versus forecasting—their integration is crucial for generating robust, practically relevant insights in HRM.
+
+HRM studies often culminate in managerial recommendations—statements implying “If organizations implement practice X, then outcome Y will improve.” Such prescriptions presuppose that the estimated model reliably forecasts Y when X changes. Without explicit predictive validation, overfitting [^1] to the original sample can lead scholars and practitioners to overestimate an intervention’s real‐world impact. Sarstedt and Danks (2021) showed that 99% of HRM studies report only explanatory metrics, yet advance prescriptive claims—creating a methodological gap between rhetoric and reality \[@Sarstedt2021\].
+
+[^1]: Overfitting occurs when a model captures random noise specific to the estimation dataset rather than the underlying phenomenon. Predictive validation (e.g., train/test split, k‐fold CV) quantifies and often reveals such overfitting, safeguarding against spurious managerial guidance.
+
+# Theoretical Foundations
+
+## Explanation versus Prediction in HRM Research
+
+Modeling serves two distinct but complementary purposes: explanation and prediction. Explanatory modeling focuses on testing theoretical propositions by estimating associations among constructs and evaluating in‐sample fit via statistics such as R², F‐tests, and SEM indices (e.g., CFI, RMSEA) [@Shmueli2010]. In contrast, predictive modeling assesses a model’s capacity to generate accurate forecasts for new, unseen observations using metrics such as root mean squared error (RMSE) and mean absolute error (MAE)[@ShmueliKoppius2011]. The distinction has profound methodological implications: explanatory analyses prioritize causal inference and parameter significance, whereas predictive analyses emphasize out‐of‐sample generalizability and error minimization, often employing train–test splits or cross‐validation techniques (e.g., k‐fold, LOOCV) [@Hastie2013]. Scholars have long cautioned that conflating explanation with prediction may lead to overfitting and misleading inferences when models optimized for in‐sample performance fail to generalize beyond the estimation dataset[@Forster2002][@ForsterSober1994].
+
+# Research Objectives and Contribution
+
+## Aims of the Replication Study
+
+The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) investigation, empirically demonstrating the gap between explanatory and predictive modeling in HRM. Using the International Social Survey Programme (ISSP) 2015 Work Orientation dataset, we re‐estimate a job satisfaction model originally proposed by Drabe et al. (2015) across three distinct national contexts: the United States, Germany, and Japan. Through a systematic evaluation of in‐sample R² and out‐of‐sample RMSE and MAE—employing train–hold‐out splits and k‐fold cross‐validation—we seek to illustrate the variability of predictive performance relative to explanatory fit. Furthermore, we integrate Necessary Condition Analysis (NCA) to identify conditions that must be present for high job satisfaction, thereby enriching explanatory insights with boundary constraints on outcome attainment.
+
+# Data Source and Variable Description
+
+## ISSP 2015 Work Orientation Dataset
+
+The ISSP 2015 Work Orientation module provides harmonized, publicly available survey data from multiple countries. We selected three national subsamples—United States (USA; n = 915), Germany (GER; n = 899), and Japan (JPN; n = 635)—to ensure cultural and institutional diversity. The dependent variable, job satisfaction (job_sat), was measured on a 1–7 Likert scale. Independent variables matched those used by Drabe et al. (2015): gender (sex), age category (Age_cat: ≤35, 36–49, ≥50), years of education (educyrs), income, perceived advancement opportunities (advancement), job security (security), job interest (interesting), work autonomy (independent), and quality of relationships with management (rel_mgmt) and colleagues (rel_clgs) [@Drabe2015].
+
+\
+Key Constructs and Measurement
+
+The model replicates Drabe et al. (2015) and includes:
+
+1.  Gender (sex) – intrinsic demographic
+
+2.  Age category (Age_cat: ≤35, 36–49, ≥50) – intrinsic demographic
+
+3.  Education (educyrs) – intrinsic human‐capital
+
+4.  Income – extrinsic reward
+
+5.  Advancement opportunities (advancement) – extrinsic reward
+
+6.  Job security (security) – extrinsic reward
+
+7.  Job interest (interesting) – intrinsic job characteristic
+
+8.  Autonomy (independent) – intrinsic job characteristic
+
+9.  Relationship with management (rel_mgmt) – social work context
+
+10. Relationship with colleagues (rel_clgs) – social work context
+
+11. Job satisfaction (job_sat) – outcome variable
+
+# Data Preprocessing and Preparation
+
+## Handling Missing Data and Case‐Wise Deletion
+
+Survey items exhibited uneven missingness across countries (up to 35% for some items). In line with Sarstedt and Danks (2021), we applied case‐wise deletion to maintain consistent sample composition for comparative modeling, accepting potential reductions in statistical power to preserve internal validity. All continuous predictors were standardized (z‐scores) to facilitate coefficient comparability across models.
+
+## Reverse Coding and Scale Alignment
+
+In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction (higher = better), we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction.
+
+# Methodological Framework
+
+## Explanatory Modeling via Multiple Regression
+
+## Predictive Modeling and Cross‐Validation
+
+A single train/test split divides data once into estimation and validation samples, providing one out‐of‐sample error estimate. However, this estimate can be sensitive to how the split occurs. K‐fold cross‐validation (e.g., k = 10) partitions the data into k subsets, iteratively training on k−1 folds and validating on the remaining fold. Averaging errors across all folds yields a more stable and less split‐dependent estimate of predictive performance [@Hastie2013].
+
+## Evaluation Metrics: R², RMSE, MAE {#evaluation-metrics}
+
+**R²** measures the proportion of variance in the dependent variable explained by the model **within the estimation sample**. It ranges from 0 to 1, with higher values indicating better in‐sample fit.
+
+**RMSE** is the square root of the average squared prediction errors and retains the dependent variable’s scale. It conveys, on average, how far predictions deviate from actual values.
+
+**MAE** is the average absolute prediction error, also in the outcome’s scale, offering an easily interpretable mean deviation.
+
+While R² speaks to explanatory adequacy, RMSE and MAE quantify predictive accuracy on new data. A model can exhibit a high R² but still produce large RMSE, signaling overfitting.
+
+## Necessary Condition Analysis (NCA)
+
+NCA identifies variables that constitute **prerequisites** for achieving a certain outcome level. A necessary condition is one without which the outcome cannot occur, even if it alone is insufficient to guarantee the outcome[@Richter2025]. NCA detects “empty zones” in scatterplots—regions above a ceiling line where no observations exist—indicating that below a threshold of the predictor, the outcome never reaches the target.
+
+If years of education (X) is a necessary condition for job satisfaction ≥ 6 (Y), NCA might show that no respondents with fewer than 8 years of education report Y ≥ 6. Despite other favorable conditions, education below this threshold precludes high satisfaction.
+
+# Diagnostics and Assumption Checks
+
+## Linearity, Homoscedasticity, Normality
+
+## Collinearity Diagnostics and VIF
+
+# Replication Results
+
+## In‐Sample Fit versus Out‐of‐Sample Performance
+
+## Model Variability within Context
+
+## Cross‐Country Generalizability of Predictive Power
+
+# Extension: Determinants of Job Satisfaction
+
+## Standardized Coefficients across Countries
+
+## Identifying Necessary Conditions with NCA
+
+# Discussion
+
+## Implications for HRM Theory and Practice
+
+## Challenges in Reproducing Published Analyses
+
+## Comparison of Python, R/JASP, and SmartPLS Outcomes
+
+# Conclusion and Future Research
+
+## Summary of Key Findings
+
+## Limitations of the Current Study
+
+## Suggestions for Advancing Predictive Rigour in HRM
