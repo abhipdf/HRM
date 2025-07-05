@@ -24,7 +24,7 @@ bibliography: references.bib
 
 Human Resource Management (HRM) research frequently employs quantitative models to explain relationships among organizational practices and employee outcomes. Explanatory modeling—grounded in inferential statistics and theory testing—has dominated the field, with scholars emphasizing in‐sample fit indices such as R², F‐statistics, and structural equation‐model (SEM) fit measures (e.g., CFI, RMSEA) to validate theoretical propositions. By contrast, predictive modeling focuses on out‐of‐sample performance, assessing a model’s ability to forecast new observations via metrics such as root mean squared error (RMSE) and mean absolute error (MAE) [@Sarstedt2021]. While both approaches serve distinct scientific objectives—explanation versus forecasting—their integration is crucial for generating robust, practically relevant insights in HRM.
 
-HRM studies often culminate in managerial recommendations—statements implying “If organizations implement practice X, then outcome Y will improve.” Such prescriptions presuppose that the estimated model reliably forecasts Y when X changes. Without explicit predictive validation, overfitting [^1] to the original sample can lead scholars and practitioners to overestimate an intervention’s real‐world impact. Sarstedt and Danks (2021) showed that 99% of HRM studies report only explanatory metrics, yet advance prescriptive claims—creating a methodological gap between rhetoric and reality \[@Sarstedt2021\].
+HRM studies often culminate in managerial recommendations—statements implying “If organizations implement practice X, then outcome Y will improve.” Such prescriptions presuppose that the estimated model reliably forecasts Y when X changes. Without explicit predictive validation, overfitting [^1] to the original sample can lead scholars and practitioners to overestimate an intervention’s real‐world impact. Sarstedt and Danks (2021) showed that 99% of HRM studies report only explanatory metrics, yet advance prescriptive claims—creating a methodological gap between rhetoric and reality [@Sarstedt2021].
 
 [^1]: Overfitting occurs when a model captures random noise specific to the estimation dataset rather than the underlying phenomenon. Predictive validation (e.g., train/test split, k‐fold CV) quantifies and often reveals such overfitting, safeguarding against spurious managerial guidance.
 
@@ -114,7 +114,7 @@ If years of education (X) is a necessary condition for job satisfaction ≥ 6 (Y
 ## Collinearity Diagnostics and VIF
 
 # Replication Results
-
+Results
 ## In‐Sample Fit versus Out‐of‐Sample Performance
 
 ## Model Variability within Context
