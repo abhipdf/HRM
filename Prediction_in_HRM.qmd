@@ -16,62 +16,59 @@ date: today
 format: pdf
 toc: true
 
-editor: visual
+editor: source
 bibliography: references.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/ieee.csl"
 ---
 
 # Introduction
 
-Human Resource Management (HRM) research frequently employs quantitative models to explain relationships among organizational practices and employee outcomes. Explanatory modeling—grounded in inferential statistics and theory testing—has dominated the field, with scholars emphasizing in‐sample fit indices such as R², F‐statistics, and structural equation‐model (SEM) fit measures (e.g., CFI, RMSEA) to validate theoretical propositions. By contrast, predictive modeling focuses on out‐of‐sample performance, assessing a model’s ability to forecast new observations via metrics such as root mean squared error (RMSE) and mean absolute error (MAE) [@Sarstedt2021]. While both approaches serve distinct scientific objectives—explanation versus forecasting—their integration is crucial for generating robust, practically relevant insights in HRM.
-
-HRM studies often culminate in managerial recommendations—statements implying “If organizations implement practice X, then outcome Y will improve.” Such prescriptions presuppose that the estimated model reliably forecasts Y when X changes. Without explicit predictive validation, overfitting [^1] to the original sample can lead scholars and practitioners to overestimate an intervention’s real‐world impact. Sarstedt and Danks (2021) showed that 99% of HRM studies report only explanatory metrics, yet advance prescriptive claims—creating a methodological gap between rhetoric and reality [@Sarstedt2021].
+Statistical modeling in the social sciences serves two distinct but complementary purposes: explanation and prediction. Explanatory modeling, the dominant paradigm in Human Resource Management (HRM), focuses on testing theoretical propositions by estimating associations among constructs and evaluating in-sample fit via statistics such as R², F-tests, and SEM indices (e.g., CFI, RMSEA) [@Shmueli2010]. In contrast, predictive modeling assesses a model’s capacity to generate accurate forecasts for new, unseen observations using out-of-sample performance metrics like root mean squared error (RMSE) and mean absolute error (MAE) [@ShmueliKoppius2011]. The distinction has profound methodological implications; explanatory analyses prioritize causal inference and parameter significance, whereas predictive analyses emphasize generalizability and error minimization, often employing train–test splits or cross-validation techniques [@Hastie2013]. Scholars have long cautioned that conflating explanation with prediction may lead to overfitting [^1] and misleading inferences when models optimized for in-sample performance fail to generalize beyond the estimation dataset [@Forster2002; @ForsterSober1994].
 
 [^1]: Overfitting occurs when a model captures random noise specific to the estimation dataset rather than the underlying phenomenon. Predictive validation (e.g., train/test split, k‐fold CV) quantifies and often reveals such overfitting, safeguarding against spurious managerial guidance.
 
-# Theoretical Foundations
+This distinction is especially critical in an applied field like HRM, where research often culminates in managerial recommendations. Such prescriptions—implying that “If an organization implements practice X, then outcome Y will improve”—are inherently predictive. They presuppose that the underlying statistical model can reliably forecast how Y will change when X is altered. Yet, a significant gap exists between this predictive goal and the field's methodological practices. In a landmark review, Sarstedt and Danks (2021) demonstrated that while 99% of HRM studies advance prescriptive claims, they rely solely on explanatory metrics for model validation. This creates a fundamental "gap between rhetoric and reality," calling into question the real-world utility of many research-based recommendations [@Sarstedt2021].
 
-## Explanation versus Prediction in HRM Research
-
-Modeling serves two distinct but complementary purposes: explanation and prediction. Explanatory modeling focuses on testing theoretical propositions by estimating associations among constructs and evaluating in‐sample fit via statistics such as R², F‐tests, and SEM indices (e.g., CFI, RMSEA) [@Shmueli2010]. In contrast, predictive modeling assesses a model’s capacity to generate accurate forecasts for new, unseen observations using metrics such as root mean squared error (RMSE) and mean absolute error (MAE)[@ShmueliKoppius2011]. The distinction has profound methodological implications: explanatory analyses prioritize causal inference and parameter significance, whereas predictive analyses emphasize out‐of‐sample generalizability and error minimization, often employing train–test splits or cross‐validation techniques (e.g., k‐fold, LOOCV) [@Hastie2013]. Scholars have long cautioned that conflating explanation with prediction may lead to overfitting and misleading inferences when models optimized for in‐sample performance fail to generalize beyond the estimation dataset[@Forster2002][@ForsterSober1994].
-
-# Research Objectives and Contribution
-
-## Aims of the Replication Study
-
-The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) investigation, empirically demonstrating the gap between explanatory and predictive modeling in HRM. Using the International Social Survey Programme (ISSP) 2015 Work Orientation dataset, we re‐estimate a job satisfaction model originally proposed by Drabe et al. (2015) across three distinct national contexts: the United States, Germany, and Japan. Through a systematic evaluation of in‐sample R² and out‐of‐sample RMSE and MAE—employing train–hold‐out splits and k‐fold cross‐validation—we seek to illustrate the variability of predictive performance relative to explanatory fit. Furthermore, we integrate Necessary Condition Analysis (NCA) to identify conditions that must be present for high job satisfaction, thereby enriching explanatory insights with boundary constraints on outcome attainment.
+The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) investigation, empirically demonstrating the gap between explanatory and predictive modeling in HRM. Using the International Social Survey Programme (ISSP) 2015 Work Orientation dataset, we re-estimate a job satisfaction model originally proposed by Drabe et al. (2015) across three distinct national contexts: the United States, Germany, and Japan. Through a systematic evaluation of in-sample R² and out-of-sample RMSE and MAE—employing train–hold-out splits and k-fold cross-validation—we seek to illustrate the variability of predictive performance relative to explanatory fit. Furthermore, we integrate Necessary Condition Analysis (NCA) to identify conditions that must be present for high job satisfaction, thereby enriching explanatory insights with boundary constraints on outcome attainment.
 
 # Data Source and Variable Description
 
 ## ISSP 2015 Work Orientation Dataset
 
-The ISSP 2015 Work Orientation module provides harmonized, publicly available survey data from multiple countries. We selected three national subsamples—United States (USA; n = 915), Germany (GER; n = 899), and Japan (JPN; n = 635)—to ensure cultural and institutional diversity. The dependent variable, job satisfaction (job_sat), was measured on a 1–7 Likert scale. Independent variables matched those used by Drabe et al. (2015): gender (sex), age category (Age_cat: ≤35, 36–49, ≥50), years of education (educyrs), income, perceived advancement opportunities (advancement), job security (security), job interest (interesting), work autonomy (independent), and quality of relationships with management (rel_mgmt) and colleagues (rel_clgs) [@Drabe2015].
+The ISSP 2015 Work Orientation module provides harmonized, publicly available survey data from multiple countries. We selected three national subsamples—United States (USA; n = 915), Germany (GER; n = 899), and Japan (JPN; n = 635). The dependent variable, job satisfaction (job_sat), was measured on a 1–7 Likert scale. Independent variables matched those used by Drabe et al. These are as follows: [@Drabe2015].
 
 \
 Key Constructs and Measurement
 
-The model replicates Drabe et al. (2015) and includes:
++-----------------------------------------+------------------------------+
+| Variable                                | Intrinsic/Extrinsic          |
++=========================================+==============================+
+| Gender (sex)                            | Intrinsic demographic        |
++-----------------------------------------+------------------------------+
+| Age Category                            | Intrinsic demographic        |
+|                                         |                              |
+| (Age_cat: ≤35, 36–49, ≥50)              |                              |
++-----------------------------------------+------------------------------+
+| Education (educyrs)                     | Intrinsic human‐capital      |
++-----------------------------------------+------------------------------+
+| Income                                  | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job security (security)                 | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job interest (interesting)              | Intrinsic job characteristic |
++-----------------------------------------+------------------------------+
+| Autonomy (independent)                  | Intrinsic job characteristic |
++-----------------------------------------+------------------------------+
+| Relationship with management (rel_mgmt) | Social work context          |
++-----------------------------------------+------------------------------+
+| Relationship with colleagues (rel_clgs) | Social work context          |
++-----------------------------------------+------------------------------+
+| Advancement opportunities (advancement) | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job satisfaction (job_sat)              | Outcome Variable             |
++-----------------------------------------+------------------------------+
 
-1.  Gender (sex) – intrinsic demographic
-
-2.  Age category (Age_cat: ≤35, 36–49, ≥50) – intrinsic demographic
-
-3.  Education (educyrs) – intrinsic human‐capital
-
-4.  Income – extrinsic reward
-
-5.  Advancement opportunities (advancement) – extrinsic reward
-
-6.  Job security (security) – extrinsic reward
-
-7.  Job interest (interesting) – intrinsic job characteristic
-
-8.  Autonomy (independent) – intrinsic job characteristic
-
-9.  Relationship with management (rel_mgmt) – social work context
-
-10. Relationship with colleagues (rel_clgs) – social work context
-
-11. Job satisfaction (job_sat) – outcome variable
+: Variables defining Job satisfaction
 
 # Data Preprocessing and Preparation
 
@@ -79,27 +76,53 @@ The model replicates Drabe et al. (2015) and includes:
 
 Survey items exhibited uneven missingness across countries (up to 35% for some items). In line with Sarstedt and Danks (2021), we applied case‐wise deletion to maintain consistent sample composition for comparative modeling, accepting potential reductions in statistical power to preserve internal validity. All continuous predictors were standardized (z‐scores) to facilitate coefficient comparability across models.
 
+![Heatmap of percentage Missing Data by column.](images/missing_data_heatmap.png)
+
 ## Reverse Coding and Scale Alignment
 
 In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction (higher = better), we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction.
 
 # Methodological Framework
 
-## Explanatory Modeling via Multiple Regression
+## Evaluating Predictive Models: Justification for Key Metrics
 
-## Predictive Modeling and Cross‐Validation
+In assessing the predictive utility of a model, it is crucial to select metrics that capture different dimensions of performance. Among the various available metrics, R-squared (R²), Root Mean Square Error (RMSE), and Mean Absolute Error (MAE) are particularly valuable because they provide complementary insights into goodness-of-fit, error magnitude, and interpretability.
 
-A single train/test split divides data once into estimation and validation samples, providing one out‐of‐sample error estimate. However, this estimate can be sensitive to how the split occurs. K‐fold cross‐validation (e.g., k = 10) partitions the data into k subsets, iteratively training on k−1 folds and validating on the remaining fold. Averaging errors across all folds yields a more stable and less split‐dependent estimate of predictive performance [@Hastie2013].
+### R-squared (R²)
 
-## Evaluation Metrics: R², RMSE, MAE {#evaluation-metrics}
+R-squared quantifies the proportion of variance in the dependent variable that is explained by the independent variables. It serves as a central indicator of in-sample goodness-of-fit and helps assess the strength of association within the estimation dataset [@Sarstedt2021]. R² is widely used due to its intuitive, scale-free interpretation as a percentage (ranging from 0 to 100), making it accessible for communicating how much of the outcome variance is accounted for by the model. However, a high in-sample R² is not necessarily indicative of strong predictive power. Models can exhibit high R² values by overfitting to sample-specific noise, which undermines generalizability to new data [@Sarstedt2021].
 
-**R²** measures the proportion of variance in the dependent variable explained by the model **within the estimation sample**. It ranges from 0 to 1, with higher values indicating better in‐sample fit.
+### Root Mean Square Error (RMSE)
 
-**RMSE** is the square root of the average squared prediction errors and retains the dependent variable’s scale. It conveys, on average, how far predictions deviate from actual values.
+RMSE is a commonly used metric for assessing predictive accuracy and reflects the standard deviation of residuals, i.e., the differences between predicted and observed values [@Sarstedt2021]. As a quadratic scoring rule, RMSE disproportionately penalizes larger errors, making it especially sensitive to extreme deviations. One of RMSE's primary advantages is that it is expressed in the same units as the dependent variable, which enhances its practical interpretability. For example, in a model predicting job satisfaction on a 1–7 scale, an out-of-sample RMSE of 0.9 conveys the typical magnitude of prediction error in real terms [@Sarstedt2021]. This makes RMSE a particularly informative metric for evaluating predictive utility on holdout data.
 
-**MAE** is the average absolute prediction error, also in the outcome’s scale, offering an easily interpretable mean deviation.
+### Mean Absolute Error (MAE)
 
-While R² speaks to explanatory adequacy, RMSE and MAE quantify predictive accuracy on new data. A model can exhibit a high R² but still produce large RMSE, signaling overfitting.
+MAE measures the average absolute difference between predicted and observed values. Unlike RMSE, it applies equal weight to all errors, regardless of their size, offering a linear and less distortion-prone assessment of predictive accuracy.MAE is valued for its simplicity and intuitive appeal. It directly communicates how far, on average, the model's predictions deviate from actual outcomes [@Sarstedt2021]. For instance, a MAE of 0.7 in a job satisfaction model suggests that predictions are typically off by 0.7 points, a figure that is easily interpretable for both technical and non-technical audiences.
+
+## Understanding Downturns in Predictive Accuracy
+
+A frequent observation in predictive modeling is that performance often degrades when models are applied to new data or different contexts. This reduction in predictive accuracy can be attributed to both statistical factors and real-world contextual changes.
+
+### Statistical Explanations
+
+#### Overfitting:
+
+Overfitting occurs when a model is excessively tailored to the training data, capturing random noise alongside meaningful patterns. This results in high explanatory power (e.g., high in-sample R²) but poor generalization to unseen data [@Sarstedt2021]. A strong in-sample fit does not guarantee low prediction error on new data, as models may fail to reproduce their performance beyond the original sample.
+
+#### Sample-Specific Variance:
+
+Every dataset represents a random sample from a broader population and will therefore contain sample-specific idiosyncrasies. A model optimized on one sample may perform poorly on another due to sampling variability alone. Evidence of this effect can be seen in studies where models with similar R² scores display wide variation in out-of-sample RMSE values across multiple resampled datasets.
+
+### Substantive Explanations in Human Resource Management (HRM)
+
+#### Limited Generalizability Across Contexts:
+
+Predictive models in HRM often struggle to generalize across national, organizational, or cultural contexts. Social, institutional, and cultural variables influence employee attitudes and behaviors, and a model trained in one context (e.g., Japan) may not perform well in another (e.g., the United States) due to differences in underlying drivers [@Sarstedt2021].
+
+#### Temporal Instability:
+
+The factors influencing outcomes like job satisfaction are not static. Changes in the economy, labor market conditions, technological developments, or generational shifts can alter the relevance or strength of predictors over time. Empirical research has shown that models estimated using data from one time period (e.g., 2005) often perform poorly when applied to later periods (e.g., 2015), suggesting a decline in predictive relevance due to evolving conditions [@Sarstedt2021].
 
 ## Necessary Condition Analysis (NCA)
 
@@ -129,11 +152,11 @@ Interestingly, Figure 1 shows that higher R-squared values tend to be associated
 
 To explore this further, we zoomed in on the models with an R-squared close to that of the original German model (R² between 0.366 and 0.386). Although these models all explain roughly the same proportion of variance, their prediction errors still vary greatly, from 0.75 to 0.94, meaning a 25% increase in error between the best and worst cases.
 
-![Relationship between (in‐sample) R² and out‐of‐sample root mean square error (RMSE) ](images/Fig1a.jpg)
+![Relationship between (in‐sample) R² and out‐of‐sample root mean square error (RMSE)](images/Fig1a.jpg)
 
 ![Relationship between in‐sample RMSE and out‐of‐sample RMSE](images/Fig1b-2.jpg)
 
-![Density plot of predictive power for subsamples with 0.366 \< R² \< 0.386. RMSE, root mean square error](images/Fig 3.jpg)
+![Density plot of predictive power for subsamples with 0.366 \< R² \< 0.386. RMSE, root mean square error](images/Fig%203.jpg)
 
 This first analysis highlights the importance of jointly evaluating both explanatory and predictive power when assessing a model’s performance. Our goal is to caution researchers against drawing prescriptive conclusions based solely on a model’s in-sample fit, such as R-squared or in-sample RMSE, without verifying how well the model performs on unseen data.\
 As we have shown, models that explain a large proportion of variance in the training data do not necessarily perform well in predicting new observations. In fact, we observed that some models with high explanatory power exhibited relatively poor predictive performance, indicating a risk of overfitting.\
@@ -150,9 +173,9 @@ From the results, the Japanese model shows to have the highest R-squared (0.508)
 Furthermore, no other model predicts the Japanese data well, indicating that job satisfaction in Japan may follow idiosyncratic patterns not captured by models trained elsewhere.\
 The German model has the lowest explanatory power (R² = 0.384), but its data are reasonably well predicted by both the USA and Japan models. This may mean that the German model omits some relevant predictors or suffers from multicollinearity. At the same time, the predictors that matter in the USA and Japan might partially capture variation in the German context.
 
-![Ability of each country-specific model to fit its own country data](images/Figure 4.jpg)
+![Ability of each country-specific model to fit its own country data](images/Figure%204.jpg)
 
-![Predictive power of country-specific models](images/Figure 5.jpg)
+![Predictive power of country-specific models](images/Figure%205.jpg)
 
 This second analysis shows that models trained in one country do not necessarily generalize well to other countries. Patterns that hold in one cultural or institutional context may not apply elsewhere.\
 We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability.
