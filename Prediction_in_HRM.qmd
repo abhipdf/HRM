@@ -35,6 +35,8 @@ In particular, we are showing that models with  similar degrees of explanatory p
 
 # Data Source and Variable Description
 
+jisdksd
+
 ## ISSP 2015 Work Orientation Dataset
 
 The ISSP 2015 Work Orientation module provides harmonized, publicly available survey data from multiple countries. We selected three national subsamples—United States (USA; n = 915), Germany (GER; n = 899), and Japan (JPN; n = 635). The dependent variable, job satisfaction (job_sat), was measured on a 1–7 Likert scale. Independent variables matched those used by Drabe et al. These are as follows: [@Drabe2015].
