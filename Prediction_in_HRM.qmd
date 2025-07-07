@@ -29,9 +29,7 @@ Statistical modeling in the social sciences serves two distinct but complementar
 
 This distinction is especially critical in an applied field like HRM, where research often culminates in managerial recommendations. Such prescriptions—implying that “If an organization implements practice X, then outcome Y will improve”—are inherently predictive. They presuppose that the underlying statistical model can reliably forecast how Y will change when X is altered. Yet, a significant gap exists between this predictive goal and the field's methodological practices. In a landmark review, Sarstedt and Danks (2021) demonstrated that while 99% of HRM studies advance prescriptive claims, they rely solely on explanatory metrics for model validation. This creates a fundamental "gap between rhetoric and reality," calling into question the real-world utility of many research-based recommendations [@Sarstedt2021].
 
-The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) investigation, empirically demonstrating the gap between explanatory and predictive modeling in HRM.
-In particular, we are showing that models with  similar degrees of explanatory power can perform very differently in term of predictive power. In addition, we are going to demonstrate that a model developed in one context, for example in a country, can not necessarly generalize well if applied to other contexts.
- Using the International Social Survey Programme (ISSP) 2015 Work Orientation dataset, we re-estimate a job satisfaction model originally proposed by Drabe et al. (2015) across three distinct national contexts: the United States, Germany, and Japan. Through a systematic evaluation of in-sample R² and out-of-sample RMSE and MAE—employing train–hold-out splits and k-fold cross-validation—we seek to illustrate the variability of predictive performance relative to explanatory fit. Furthermore, we integrate Necessary Condition Analysis (NCA) to identify conditions that must be present for high job satisfaction, thereby enriching explanatory insights with boundary constraints on outcome attainment.
+The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) investigation, empirically demonstrating the gap between explanatory and predictive modeling in HRM. In particular, we are showing that models with similar degrees of explanatory power can perform very differently in term of predictive power. In addition, we are going to demonstrate that a model developed in one context, for example in a country, can not necessarly generalize well if applied to other contexts. Using the International Social Survey Programme (ISSP) 2015 Work Orientation dataset, we re-estimate a job satisfaction model originally proposed by Drabe et al. (2015) across three distinct national contexts: the United States, Germany, and Japan. Through a systematic evaluation of in-sample R² and out-of-sample RMSE and MAE—employing train–hold-out splits and k-fold cross-validation—we seek to illustrate the variability of predictive performance relative to explanatory fit. Furthermore, we integrate Necessary Condition Analysis (NCA) to identify conditions that must be present for high job satisfaction, thereby enriching explanatory insights with boundary constraints on outcome attainment.
 
 # Data Source and Variable Description
 
@@ -82,11 +80,9 @@ Survey items exhibited uneven missingness across countries (up to 35% for some i
 
 ![Heatmap of percentage Missing Data by column.](images/missing_data_heatmap.png)
 
-## Reverse Coding and Scale Alignment
+## Reverse Coding
 
 In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction (higher = better), we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction.
-
-# Methodological Framework
 
 ## Evaluating Predictive Models: Justification for Key Metrics
 
@@ -156,14 +152,9 @@ Interestingly, Figure 1 shows that higher R-squared values tend to be associated
 
 To explore this further, we zoomed in on the models with an R-squared close to that of the original German model (R² between 0.366 and 0.386). Although these models all explain roughly the same proportion of variance, their prediction errors still vary greatly, from 0.75 to 0.94, meaning a 25% increase in error between the best and worst cases.
 
-![Relationship between (in‐sample) R² and out‐of‐sample root mean square error (RMSE)](images/Fig1a.jpg)
+![\[1a\] Relationship between (in‐sample) R² and out‐of‐sample root mean square error (RMSE) \[1.b\] Relationship between in‐sample RMSE and out‐of‐sample RMSE](images/scatter_plot_usa.png){fig-align="center"}
 
-
-
-![Relationship between in‐sample RMSE and out‐of‐sample RMSE](images/Fig1b-2.jpg)
-
-
-![Density plot of predictive power for subsamples with 0.366 \< R² \< 0.386. RMSE, root mean square error](images/Fig%203.jpg)
+![Density plot of predictive power for subsamples with 0.366 \< R² \< 0.386. RMSE, root mean square error](images/density_usa.png){fig-align="center"}
 
 This first analysis highlights the importance of jointly evaluating both explanatory and predictive power when assessing a model’s performance. Our goal is to caution researchers against drawing prescriptive conclusions based solely on a model’s in-sample fit, such as R-squared or in-sample RMSE, without verifying how well the model performs on unseen data.\
 As we have shown, models that explain a large proportion of variance in the training data do not necessarily perform well in predicting new observations. In fact, we observed that some models with high explanatory power exhibited relatively poor predictive performance, indicating a risk of overfitting.\
@@ -208,3 +199,5 @@ We emphasize the importance of validating predictive performance across time, po
 ## Limitations of the Current Study
 
 ## Suggestions for Advancing Predictive Rigour in HRM
+
+# Use of AI
