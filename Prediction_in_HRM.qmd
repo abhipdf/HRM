@@ -23,17 +23,17 @@ csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/ie
 
 # Introduction
 
-Statistical modeling in the social sciences serves two distinct but complementary purposes: explanation and prediction. Explanatory modeling, the dominant paradigm in Human Resource Management (HRM), focuses on testing theoretical propositions by estimating associations among constructs and evaluating in-sample fit via statistics such as R², F-tests, and SEM indices (e.g., CFI, RMSEA) [@Shmueli2010]. In contrast, predictive modeling assesses a model’s capacity to generate accurate forecasts for new, unseen observations using out-of-sample performance metrics like root mean squared error (RMSE) and mean absolute error (MAE) [@ShmueliKoppius2011]. The distinction has profound methodological implications; explanatory analyses prioritize causal inference and parameter significance, whereas predictive analyses emphasize generalizability and error minimization, often employing train–test splits or cross-validation techniques [@Hastie2013]. Scholars have long cautioned that conflating explanation with prediction may lead to overfitting [^1] and misleading inferences when models optimized for in-sample performance fail to generalize beyond the estimation dataset [@Forster2002; @ForsterSober1994].
+Statistical modeling in the social sciences serves two distinct but complementary purposes: explanation and prediction. Explanatory modeling, the dominant paradigm in Human Resource Management (HRM), focuses on testing theoretical propositions by estimating associations among constructs and evaluating in-sample fit via statistics such as R², F-tests, and SEM indices (e.g., CFI, RMSEA)[^1] [@Shmueli2010]. In contrast, predictive modeling assesses a model’s capacity to generate accurate forecasts for new, unseen observations using out-of-sample performance metrics like root mean squared error (RMSE) and mean absolute error (MAE) [@ShmueliKoppius2011]. The distinction has profound methodological implications; explanatory analyses prioritize causal inference and parameter significance, whereas predictive analyses emphasize generalizability and error minimization, often employing train–test splits or cross-validation techniques [@Hastie2013]. Scholars have long cautioned that conflating explanation with prediction may lead to overfitting [^2] and misleading inferences when models optimized for in-sample performance fail to generalize beyond the estimation dataset [@Forster2002; @ForsterSober1994].
 
-[^1]: Overfitting occurs when a model captures random noise specific to the estimation dataset rather than the underlying phenomenon. Predictive validation (e.g., train/test split, k‐fold CV) quantifies and often reveals such overfitting, safeguarding against spurious managerial guidance.
+[^1]: *Structural Equation Modeling (SEM) fit indices, such as the Comparative Fit Index (CFI) and Root Mean Square Error of Approximation (RMSEA), evaluate how well a proposed model reproduces observed data patterns. Acceptable model fit is typically indicated by CFI values ≥ .90 and RMSEA values ≤ .08*
+
+[^2]: *Overfitting occurs when a model captures noise unique to the estimation dataset rather than the true underlying patterns. Predictive validation techniques, such as train/test splits or k-fold cross-validation (CV), help detect overfitting and mitigate the risk of generating misleading managerial insights.*
 
 This distinction is especially critical in an applied field like HRM, where research often culminates in managerial recommendations. Such prescriptions—implying that “If an organization implements practice X, then outcome Y will improve”—are inherently predictive. They presuppose that the underlying statistical model can reliably forecast how Y will change when X is altered. Yet, a significant gap exists between this predictive goal and the field's methodological practices. In a landmark review, Sarstedt and Danks (2021) demonstrated that while 99% of HRM studies advance prescriptive claims, they rely solely on explanatory metrics for model validation. This creates a fundamental "gap between rhetoric and reality," calling into question the real-world utility of many research-based recommendations [@Sarstedt2021].
 
 The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) investigation, empirically demonstrating the gap between explanatory and predictive modeling in HRM. In particular, we are showing that models with similar degrees of explanatory power can perform very differently in term of predictive power. In addition, we are going to demonstrate that a model developed in one context, for example in a country, can not necessarly generalize well if applied to other contexts. Using the International Social Survey Programme (ISSP) 2015 Work Orientation dataset, we re-estimate a job satisfaction model originally proposed by Drabe et al. (2015) across three distinct national contexts: the United States, Germany, and Japan. Through a systematic evaluation of in-sample R² and out-of-sample RMSE and MAE—employing train–hold-out splits and k-fold cross-validation—we seek to illustrate the variability of predictive performance relative to explanatory fit. Furthermore, we integrate Necessary Condition Analysis (NCA) to identify conditions that must be present for high job satisfaction, thereby enriching explanatory insights with boundary constraints on outcome attainment.
 
 # Data Source and Variable Description
-
-jisdksd
 
 ## ISSP 2015 Work Orientation Dataset
 
@@ -76,7 +76,7 @@ Key Constructs and Measurement
 
 ## Handling Missing Data and Case‐Wise Deletion
 
-Survey items exhibited uneven missingness across countries (up to 35% for some items). In line with Sarstedt and Danks (2021), we applied case‐wise deletion to maintain consistent sample composition for comparative modeling, accepting potential reductions in statistical power to preserve internal validity. All continuous predictors were standardized (z‐scores) to facilitate coefficient comparability across models.
+Survey items exhibited uneven missingness across countries (up to 35% for some items). In line with Sarstedt and Danks (2021), we applied case‐wise deletion to maintain consistent sample composition for comparative modeling, accepting potential reductions in statistical power to preserve internal validity.
 
 ![Heatmap of percentage Missing Data by column.](images/missing_data_heatmap.png)
 
@@ -171,9 +171,9 @@ From the results, the Japanese model shows to have the highest R-squared (0.508)
 Furthermore, no other model predicts the Japanese data well, indicating that job satisfaction in Japan may follow idiosyncratic patterns not captured by models trained elsewhere.\
 The German model has the lowest explanatory power (R² = 0.384), but its data are reasonably well predicted by both the USA and Japan models. This may mean that the German model omits some relevant predictors or suffers from multicollinearity. At the same time, the predictors that matter in the USA and Japan might partially capture variation in the German context.
 
-![Ability of each country-specific model to fit its own country data](images/Figure%204.jpg)
+![Ability of each country-specific model to fit its own country data](images/cross_prediction.png){fig-align="center"}
 
-![Predictive power of country-specific models](images/Figure%205.jpg)
+![Predictive power of country-specific models](images/heatmap_county_predict_country.png){fig-align="center"}
 
 This second analysis shows that models trained in one country do not necessarily generalize well to other countries. Patterns that hold in one cultural or institutional context may not apply elsewhere.\
 We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability.
