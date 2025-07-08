@@ -18,7 +18,7 @@ toc: true
 
 editor: source
 bibliography: references.bib
-csl: apa.csl
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 ---
 
 # 1 Introduction
@@ -36,6 +36,7 @@ The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) in
 ## Problem Statement
 
 # 2 Theory and Hypothesis
+
 ## Evaluating Predictive Models: Justification for Key Metrics
 
 In assessing the predictive utility of a model, it is crucial to select metrics that capture different dimensions of performance. Among the various available metrics, R-squared (R²), Root Mean Square Error (RMSE), and Mean Absolute Error (MAE) are particularly valuable because they provide complementary insights into goodness-of-fit, error magnitude, and interpretability.
@@ -83,6 +84,7 @@ NCA identifies variables that constitute **prerequisites** for achieving a certa
 If years of education (X) is a necessary condition for job satisfaction ≥ 6 (Y), NCA might show that no respondents with fewer than 8 years of education report Y ≥ 6. Despite other favorable conditions, education below this threshold precludes high satisfaction.
 
 # 3 Method
+
 ## Data Source and Variable Description
 
 ### ISSP 2015 Work Orientation Dataset
@@ -134,9 +136,7 @@ Survey items exhibited uneven missingness across countries (up to 35% for some i
 
 In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction (higher = better), we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction.
 
-
-
-# 4 Results -> Findings/Analysis/Interpretation
+# 4 Results -\> Findings/Analysis/Interpretation
 
 ## Diagnostics and Assumption Checks
 
@@ -187,7 +187,9 @@ This second analysis shows that models trained in one country do not necessarily
 We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability.
 
 # 5 Implications
-## 5.1  Discussion
+
+## 5.1 Discussion
+
 ### Implications for HRM Theory and Practice
 
 ### Challenges in Reproducing Published Analyses
@@ -195,30 +197,13 @@ We emphasize the importance of validating predictive performance across time, po
 ### Comparison of Python, R/JASP, and SmartPLS Outcomes
 
 ## 5.2 Conclussion and Future Research
+
 ### Summary of Key Findings
 
 ### Limitations of the Current Study
 
 ### Suggestions for Advancing Predictive Rigour in HRM
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Appendix
-## Use of AI
 
+## Use of AI
