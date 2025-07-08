@@ -219,7 +219,7 @@ Both _relationship with management_ and _years of education_ demonstrate necessa
 
 ![NCA Plots](images/NCA_Plot_relevant.png){fig-align="center"}
 
-This extension enables us not only to identify the significance of determinants based on sufficiency but also to explore whether a condition must be present at all—through necessity. This approach highlights that significant determinants can have a necessary condition or not, and the same applies to nonsignificant determinants.
+This extension enables us not only to identify the significance of determinants based on sufficiency but also to explore whether a condition must be present at all through necessity. This approach highlights that significant determinants can have a necessary condition or not, and the same applies to nonsignificant determinants.
 
 | Variable     | OLS results                      | NCA results                                    | Std. Coefficient | Effect size |
 |--------------|----------------------------------|------------------------------------------------|-------------------|--------------|
