@@ -38,7 +38,9 @@ The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) in
 
 # 2 Theory and Hypothesis
 
-## Evaluating Predictive Models: Justification for Key Metrics
+## 2.1 Job Satisfaction
+
+## 2.2 Evaluating Predictive Models: Justification for Key Metrics
 
 In assessing the predictive utility of a model, it is crucial to select metrics that capture different dimensions of performance. Among the various available metrics, R-squared (R²), Root Mean Square Error (RMSE), and Mean Absolute Error (MAE) are particularly valuable because they provide complementary insights into goodness-of-fit, error magnitude, and interpretability.
 
@@ -54,31 +56,37 @@ RMSE is a commonly used metric for assessing predictive accuracy and reflects th
 
 MAE measures the average absolute difference between predicted and observed values. Unlike RMSE, it applies equal weight to all errors, regardless of their size, offering a linear and less distortion-prone assessment of predictive accuracy.MAE is valued for its simplicity and intuitive appeal. It directly communicates how far, on average, the model's predictions deviate from actual outcomes [@Sarstedt2021]. For instance, a MAE of 0.7 in a job satisfaction model suggests that predictions are typically off by 0.7 points, a figure that is easily interpretable for both technical and non-technical audiences.
 
-## Understanding Downturns in Predictive Accuracy
+### Understanding Downturns in Predictive Accuracy
 
 A frequent observation in predictive modeling is that performance often degrades when models are applied to new data or different contexts. This reduction in predictive accuracy can be attributed to both statistical factors and real-world contextual changes.
 
-### Statistical Explanations
+#### Statistical Explanations
 
-#### Overfitting:
+##### Overfitting:
 
 Overfitting occurs when a model is excessively tailored to the training data, capturing random noise alongside meaningful patterns. This results in high explanatory power (e.g., high in-sample R²) but poor generalization to unseen data [@Sarstedt2021]. A strong in-sample fit does not guarantee low prediction error on new data, as models may fail to reproduce their performance beyond the original sample.
 
-#### Sample-Specific Variance:
+##### Sample-Specific Variance:
 
 Every dataset represents a random sample from a broader population and will therefore contain sample-specific idiosyncrasies. A model optimized on one sample may perform poorly on another due to sampling variability alone. Evidence of this effect can be seen in studies where models with similar R² scores display wide variation in out-of-sample RMSE values across multiple resampled datasets.
 
-### Substantive Explanations in Human Resource Management (HRM)
+#### Substantive Explanations in Human Resource Management (HRM)
 
-#### Limited Generalizability Across Contexts:
+##### Limited Generalizability Across Contexts:
 
 Predictive models in HRM often struggle to generalize across national, organizational, or cultural contexts. Social, institutional, and cultural variables influence employee attitudes and behaviors, and a model trained in one context (e.g., Japan) may not perform well in another (e.g., the United States) due to differences in underlying drivers [@Sarstedt2021].
 
-#### Temporal Instability:
+##### Temporal Instability:
 
 The factors influencing outcomes like job satisfaction are not static. Changes in the economy, labor market conditions, technological developments, or generational shifts can alter the relevance or strength of predictors over time. Empirical research has shown that models estimated using data from one time period (e.g., 2005) often perform poorly when applied to later periods (e.g., 2015), suggesting a decline in predictive relevance due to evolving conditions [@Sarstedt2021].
 
-## 2.3 Research Extension
+## 2.3 Assumptions of Linear Regression
+
+### Linearity, Homoscedasticity, Normality
+
+### Collinearity Diagnostics and VIF
+
+## 2.4 Research Extension
 
 After replication, this research is extended with a detailed analysis of the covariates to identify the most crucial determinants. To compare variables with different units of measurement, they must be placed on a common scale. Therefore, the standardized coefficient is used to estimate the crucial determinants in the job satisfaction model, as it can assess the relative magnitude of each independent variable and enables an assessment of the relative predictive power of these variables.[@Hair2018]. 
 
@@ -89,7 +97,8 @@ NCA is a relatively recent analytical method introduced by [@Dul2016] to identif
 
 # 3 Method
 
-## Data Source and Variable Description
+## 3.1 Replication in Three Programs
+## 3.2 Data Source and Preprocessing
 
 ### ISSP 2015 Work Orientation Dataset
 
@@ -128,7 +137,7 @@ Key Constructs and Measurement
 
 : Variables defining Job satisfaction
 
-## Data Preprocessing and Preparation
+
 
 ### Handling Missing Data and Case‐Wise Deletion
 
@@ -152,13 +161,9 @@ An empty zone indicates a necessary condition, with its size providing a way to 
 
 # 4 Results -\> Findings/Analysis/Interpretation
 
-## Diagnostics and Assumption Checks
 
-### Linearity, Homoscedasticity, Normality
 
-### Collinearity Diagnostics and VIF
-
-## Replication Results
+## 4.1 Replication Results
 
 In this chapter, we build on the models developed in the previous sections using the ISSP dataset to explore two key ideas.\
 First, we examine whether a model that fits its training data well (i.e., with high explanatory power) also performs well in predicting new data. Second, we assess whether a model trained in one specific context (such as one country) can generalize to different contexts.\
@@ -200,7 +205,7 @@ The German model has the lowest explanatory power (R² = 0.384), but its data ar
 This second analysis shows that models trained in one country do not necessarily generalize well to other countries. Patterns that hold in one cultural or institutional context may not apply elsewhere.\
 We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability.
 
-## 4.3 Extension Results
+## 4.2 Extension Results
 
 **Figure xx** illustrates the main determinants of job satisfaction, ranked from highest to lowest. Having an interesting job and maintaining a good relationship with management emerge as the strongest determinants, while education ranks among the weaker predictors. The overall ordering of predictors aligns closely with the original model from [paper xyz], showing only minor differences in the coefficient values. Although the order and direction of some predictors may vary across countries, these patterns remain consistent with those observed in the original model from [paper xyz]. The full set of coefficients across different languages (Python, R, and SmartPLS) is provided in **Table xy** in the appendix.
 
