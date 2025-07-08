@@ -18,7 +18,7 @@ toc: true
 
 editor: source
 bibliography: references.bib
-csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/ieee.csl"
+csl: apa.csl
 ---
 
 # Introduction
