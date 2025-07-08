@@ -21,6 +21,7 @@ bibliography: references.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 ---
 
+\newpage
 # 1 Introduction
 
 Statistical modeling in the social sciences serves two distinct but complementary purposes: explanation and prediction. Explanatory modeling, the dominant paradigm in Human Resource Management (HRM), focuses on testing theoretical propositions by estimating associations among constructs and evaluating in-sample fit via statistics such as R², F-tests, and SEM indices (e.g., CFI, RMSEA)[^1] [@Shmueli2010]. In contrast, predictive modeling assesses a model’s capacity to generate accurate forecasts for new, unseen observations using out-of-sample performance metrics like root mean squared error (RMSE) and mean absolute error (MAE) [@ShmueliKoppius2011]. The distinction has profound methodological implications; explanatory analyses prioritize causal inference and parameter significance, whereas predictive analyses emphasize generalizability and error minimization, often employing train–test splits or cross-validation techniques [@Hastie2013]. Scholars have long cautioned that conflating explanation with prediction may lead to overfitting [^2] and misleading inferences when models optimized for in-sample performance fail to generalize beyond the estimation dataset [@Forster2002; @ForsterSober1994].
@@ -231,6 +232,9 @@ This extension enables us not only to identify the significance of determinants 
 
 ### Suggestions for Advancing Predictive Rigour in HRM
 
+
+
+\newpage
 # Appendix
 
 ## Use of AI
