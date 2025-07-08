@@ -77,11 +77,14 @@ Predictive models in HRM often struggle to generalize across national, organizat
 
 The factors influencing outcomes like job satisfaction are not static. Changes in the economy, labor market conditions, technological developments, or generational shifts can alter the relevance or strength of predictors over time. Empirical research has shown that models estimated using data from one time period (e.g., 2005) often perform poorly when applied to later periods (e.g., 2015), suggesting a decline in predictive relevance due to evolving conditions [@Sarstedt2021].
 
-## Necessary Condition Analysis (NCA)
+## 2.3 Research Extension
 
-NCA identifies variables that constitute **prerequisites** for achieving a certain outcome level. A necessary condition is one without which the outcome cannot occur, even if it alone is insufficient to guarantee the outcome[@Richter2025]. NCA detects “empty zones” in scatterplots—regions above a ceiling line where no observations exist—indicating that below a threshold of the predictor, the outcome never reaches the target.
+After replication, this research is extended with a detailed analysis of the covariates to identify the most crucial determinants. To compare variables with different units of measurement, they must be placed on a common scale. Therefore, the standardized coefficient is used to estimate the crucial determinants in the job satisfaction model, as it can assess the relative magnitude of each independent variable and enables an assessment of the relative predictive power of these variables.[@Hair2018]. 
 
-If years of education (X) is a necessary condition for job satisfaction ≥ 6 (Y), NCA might show that no respondents with fewer than 8 years of education report Y ≥ 6. Despite other favorable conditions, education below this threshold precludes high satisfaction.
+However, standardized coefficients indicate which factors are influential but not whether a certain condition must be present for an outcome to occur. Relying solely on a traditional coefficient analysis with standardized coefficients would mean classifying the variable with the highest coefficient as the most important determinant and risking the neglect of other variables with lower values. This is where Necessary Condition Analysis (NCA) comes in. 
+
+NCA is a relatively recent analytical method introduced by [@Dul2016] to identify necessary conditions within datasets. These are conditions that must be present for an outcome to occur. In 2020, Richter et al. extended NCA by integrating it with regression-based analysis using PLS-SEM [@Richter2020]. In this study, instead of applying PLS-SEM, NCA is combined with a simple multiple regression model following the guidelines proposed by Richter et al. Details about the NCA methodology will be discussed in Chapter 3.
+
 
 # 3 Method
 
@@ -136,6 +139,16 @@ Survey items exhibited uneven missingness across countries (up to 35% for some i
 
 In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction (higher = better), we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction.
 
+## 3.3 Determinants of Job Satisfaction
+
+After examining the relationship between dependent and independent variables using coefficients, the next step with NCA is to identify areas in scatter plots that indicate the presence of a necessary condition [@Richter2020]. In our model, the independent variables (X) presented in **Table XX** are treated as potential necessary conditions for Job Satisfaction (Y). This implies that if a necessary condition is not met, failure to achieve the desired outcome is guaranteed. However, NCA examines each variable individually, treating the necessary condition as operating in isolation and independently of context [@Richter2020]. Therefore, the absence of a necessary condition cannot be compensated for by other conditions or determinants.
+
+NCA uses scatter plots to visualize the necessity relationship between an independent variable and an outcome, dividing the plot into two distinct areas, as shown in **Figure xx**. The area where observations occur is called the total zone (scope), while the area without observations is referred to as the empty zone (ceiling). 
+
+![Ceiling Line Chart for Education (Years) as Predictor of Job Satisfaction](images/nca_ceiling_chart_education_modified.png)
+
+An empty zone indicates a necessary condition, with its size providing a way to assess the strength of that requirement. To quantify this strength, [@Richter2020] describe two key NCA parameters, which are the ceiling accuracy and the necessity effect size d. The necessity effect size d measures how much of the outcome space is constrained by a necessary condition, ranging from 0 to 1. Values of _d_ are interpreted as small (0–0.1), medium (0.1–0.3), large (0.3–0.5), and very large (≥0.5) effects [@Dul2016]. While _d_ ≥ 0.1 is often used to support necessity hypotheses, its value indicates the substantive importance of the condition. Ceiling accuracy reflects the percentage of observations on or below the ceiling line. The CE-FDH line always achieves 100% accuracy, while lines like CR-FDH may have lower accuracy. Although no strict threshold exists, benchmarks (e.g., 95%) can help evaluate solution quality [@Dul2016]. However, because the data in this model are discrete rather than continuous, only the CE-FDH line is relevant, with 100% accuracy expected. Therefore, the necessity effect size measurement is the primary focus in this NCA.
+
 # 4 Results -\> Findings/Analysis/Interpretation
 
 ## Diagnostics and Assumption Checks
@@ -185,6 +198,20 @@ The German model has the lowest explanatory power (R² = 0.384), but its data ar
 
 This second analysis shows that models trained in one country do not necessarily generalize well to other countries. Patterns that hold in one cultural or institutional context may not apply elsewhere.\
 We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability.
+
+## 4.3 Extension Results
+
+**Figure xx** illustrates the main determinants of job satisfaction, ranked from highest to lowest. Having an interesting job and maintaining a good relationship with management emerge as the strongest determinants, while education ranks among the weaker predictors. The overall ordering of predictors aligns closely with the original model from [paper xyz], showing only minor differences in the coefficient values. Although the order and direction of some predictors may vary across countries, these patterns remain consistent with those observed in the original model from [paper xyz]. The full set of coefficients across different languages (Python, R, and SmartPLS) is provided in **Table xy** in the appendix.
+
+![Cross-National Comparison of Standardized Regression Coefficients](images/std_coef_ranking.png){fig-align="center"}
+
+For the NCA analysis, control variables such as age group and gender are excluded because they are categorical. The variables _interesting work_, _income_, _job security_, _working independently_, and _opportunities for advancement_ show no empty zone in the scatter plots, with observations spread across all attribute levels. This indicates that there is no necessary condition for these independent variables. A summary table of all results is provided in the appendix.
+
+In contrast, _good relationship with management_, _good relationship with colleagues_, and _years of education_ emerge as variables with necessary conditions. All of these variables have 100% ceiling accuracy and effect sizes greater than zero. However, the effect size for _relationship with colleagues_ is 0.042, which is considered too small to be meaningful and can therefore be ignored. _Relationship with management_ shows the highest effect size at 0.125 and is classified as the strongest determinant of job satisfaction. _Years of education_ has an effect size of 0.109, ranking second in NCA.
+
+Both _relationship with management_ and _years of education_ demonstrate necessary conditions in the NCA. However, when compared with the standard regression analysis, they are classified differently based on their standardized coefficients. _Relationship with management_ is supported by its high standardized coefficient and is classified as a strong determinant. In contrast, _years of education_ is considered an insignificant determinant in the standard regression analysis due to its low standardized coefficient, but NCA provides additional insight by revealing it as a necessary condition. 
+
+This extension enables us not only to identify the significance of determinants based on sufficiency but also to explore whether a condition must be present at all—through necessity. This approach highlights that significant determinants can have a necessary condition or not, and the same applies to nonsignificant determinants.
 
 # 5 Implications
 
