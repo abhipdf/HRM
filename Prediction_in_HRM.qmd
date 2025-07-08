@@ -21,7 +21,7 @@ bibliography: references.bib
 csl: apa.csl
 ---
 
-# Introduction
+# 1 Introduction
 
 Statistical modeling in the social sciences serves two distinct but complementary purposes: explanation and prediction. Explanatory modeling, the dominant paradigm in Human Resource Management (HRM), focuses on testing theoretical propositions by estimating associations among constructs and evaluating in-sample fit via statistics such as R², F-tests, and SEM indices (e.g., CFI, RMSEA)[^1] [@Shmueli2010]. In contrast, predictive modeling assesses a model’s capacity to generate accurate forecasts for new, unseen observations using out-of-sample performance metrics like root mean squared error (RMSE) and mean absolute error (MAE) [@ShmueliKoppius2011]. The distinction has profound methodological implications; explanatory analyses prioritize causal inference and parameter significance, whereas predictive analyses emphasize generalizability and error minimization, often employing train–test splits or cross-validation techniques [@Hastie2013]. Scholars have long cautioned that conflating explanation with prediction may lead to overfitting [^2] and misleading inferences when models optimized for in-sample performance fail to generalize beyond the estimation dataset [@Forster2002; @ForsterSober1994].
 
@@ -33,57 +33,9 @@ This distinction is especially critical in an applied field like HRM, where rese
 
 The present thesis aims to replicate and extend Sarstedt and Danks’s (2021) investigation, empirically demonstrating the gap between explanatory and predictive modeling in HRM. In particular, we are showing that models with similar degrees of explanatory power can perform very differently in term of predictive power. In addition, we are going to demonstrate that a model developed in one context, for example in a country, can not necessarly generalize well if applied to other contexts. Using the International Social Survey Programme (ISSP) 2015 Work Orientation dataset, we re-estimate a job satisfaction model originally proposed by Drabe et al. (2015) across three distinct national contexts: the United States, Germany, and Japan. Through a systematic evaluation of in-sample R² and out-of-sample RMSE and MAE—employing train–hold-out splits and k-fold cross-validation—we seek to illustrate the variability of predictive performance relative to explanatory fit. Furthermore, we integrate Necessary Condition Analysis (NCA) to identify conditions that must be present for high job satisfaction, thereby enriching explanatory insights with boundary constraints on outcome attainment.
 
-# Data Source and Variable Description
+## Problem Statement
 
-## ISSP 2015 Work Orientation Dataset
-
-The ISSP 2015 Work Orientation module provides harmonized, publicly available survey data from multiple countries. We selected three national subsamples—United States (USA; n = 915), Germany (GER; n = 899), and Japan (JPN; n = 635). The dependent variable, job satisfaction (job_sat), was measured on a 1–7 Likert scale. Independent variables matched those used by Drabe et al. These are as follows: [@Drabe2015].
-
-\
-Key Constructs and Measurement
-
-+-----------------------------------------+------------------------------+
-| Variable                                | Intrinsic/Extrinsic          |
-+=========================================+==============================+
-| Gender (sex)                            | Intrinsic demographic        |
-+-----------------------------------------+------------------------------+
-| Age Category                            | Intrinsic demographic        |
-|                                         |                              |
-| (Age_cat: ≤35, 36–49, ≥50)              |                              |
-+-----------------------------------------+------------------------------+
-| Education (educyrs)                     | Intrinsic human‐capital      |
-+-----------------------------------------+------------------------------+
-| Income                                  | Extrinsic reward             |
-+-----------------------------------------+------------------------------+
-| Job security (security)                 | Extrinsic reward             |
-+-----------------------------------------+------------------------------+
-| Job interest (interesting)              | Intrinsic job characteristic |
-+-----------------------------------------+------------------------------+
-| Autonomy (independent)                  | Intrinsic job characteristic |
-+-----------------------------------------+------------------------------+
-| Relationship with management (rel_mgmt) | Social work context          |
-+-----------------------------------------+------------------------------+
-| Relationship with colleagues (rel_clgs) | Social work context          |
-+-----------------------------------------+------------------------------+
-| Advancement opportunities (advancement) | Extrinsic reward             |
-+-----------------------------------------+------------------------------+
-| Job satisfaction (job_sat)              | Outcome Variable             |
-+-----------------------------------------+------------------------------+
-
-: Variables defining Job satisfaction
-
-# Data Preprocessing and Preparation
-
-## Handling Missing Data and Case‐Wise Deletion
-
-Survey items exhibited uneven missingness across countries (up to 35% for some items). In line with Sarstedt and Danks (2021), we applied case‐wise deletion to maintain consistent sample composition for comparative modeling, accepting potential reductions in statistical power to preserve internal validity.
-
-![Heatmap of percentage Missing Data by column.](images/missing_data_heatmap.png)
-
-## Reverse Coding
-
-In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction (higher = better), we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction.
-
+# 2 Theory and Hypothesis
 ## Evaluating Predictive Models: Justification for Key Metrics
 
 In assessing the predictive utility of a model, it is crucial to select metrics that capture different dimensions of performance. Among the various available metrics, R-squared (R²), Root Mean Square Error (RMSE), and Mean Absolute Error (MAE) are particularly valuable because they provide complementary insights into goodness-of-fit, error magnitude, and interpretability.
@@ -130,19 +82,75 @@ NCA identifies variables that constitute **prerequisites** for achieving a certa
 
 If years of education (X) is a necessary condition for job satisfaction ≥ 6 (Y), NCA might show that no respondents with fewer than 8 years of education report Y ≥ 6. Despite other favorable conditions, education below this threshold precludes high satisfaction.
 
-# Diagnostics and Assumption Checks
+# 3 Method
+## Data Source and Variable Description
 
-## Linearity, Homoscedasticity, Normality
+### ISSP 2015 Work Orientation Dataset
 
-## Collinearity Diagnostics and VIF
+The ISSP 2015 Work Orientation module provides harmonized, publicly available survey data from multiple countries. We selected three national subsamples—United States (USA; n = 915), Germany (GER; n = 899), and Japan (JPN; n = 635). The dependent variable, job satisfaction (job_sat), was measured on a 1–7 Likert scale. Independent variables matched those used by Drabe et al. These are as follows: [@Drabe2015].
 
-# Replication Results
+\
+Key Constructs and Measurement
+
++-----------------------------------------+------------------------------+
+| Variable                                | Intrinsic/Extrinsic          |
++=========================================+==============================+
+| Gender (sex)                            | Intrinsic demographic        |
++-----------------------------------------+------------------------------+
+| Age Category                            | Intrinsic demographic        |
+|                                         |                              |
+| (Age_cat: ≤35, 36–49, ≥50)              |                              |
++-----------------------------------------+------------------------------+
+| Education (educyrs)                     | Intrinsic human‐capital      |
++-----------------------------------------+------------------------------+
+| Income                                  | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job security (security)                 | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job interest (interesting)              | Intrinsic job characteristic |
++-----------------------------------------+------------------------------+
+| Autonomy (independent)                  | Intrinsic job characteristic |
++-----------------------------------------+------------------------------+
+| Relationship with management (rel_mgmt) | Social work context          |
++-----------------------------------------+------------------------------+
+| Relationship with colleagues (rel_clgs) | Social work context          |
++-----------------------------------------+------------------------------+
+| Advancement opportunities (advancement) | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job satisfaction (job_sat)              | Outcome Variable             |
++-----------------------------------------+------------------------------+
+
+: Variables defining Job satisfaction
+
+## Data Preprocessing and Preparation
+
+### Handling Missing Data and Case‐Wise Deletion
+
+Survey items exhibited uneven missingness across countries (up to 35% for some items). In line with Sarstedt and Danks (2021), we applied case‐wise deletion to maintain consistent sample composition for comparative modeling, accepting potential reductions in statistical power to preserve internal validity.
+
+![Heatmap of percentage Missing Data by column.](images/missing_data_heatmap.png)
+
+### Reverse Coding
+
+In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction (higher = better), we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction.
+
+
+
+# 4 Results -> Findings/Analysis/Interpretation
+
+## Diagnostics and Assumption Checks
+
+### Linearity, Homoscedasticity, Normality
+
+### Collinearity Diagnostics and VIF
+
+## Replication Results
 
 In this chapter, we build on the models developed in the previous sections using the ISSP dataset to explore two key ideas.\
 First, we examine whether a model that fits its training data well (i.e., with high explanatory power) also performs well in predicting new data. Second, we assess whether a model trained in one specific context (such as one country) can generalize to different contexts.\
 All analyses were conducted in R and later replicated in Python to ensure robustness. Since results were consistent across both environments, we report only the R-based plots here for clarity.
 
-## Model Variability within Context
+### Model Variability within Context
 
 To address the first question, we focused on the German dataset and built 1000 models using repeated random sampling. In each replication, we drew a sample of 500 observations, then split it into two equally sized subsets: one for training and one as a holdout set.\
 Each model was trained on its training set, and we computed two in-sample metrics to evaluate explanatory power: R-squared and root mean square error (RMSE). We then used the same model to generate predictions on the holdout set and calculated the out-of-sample RMSE as a measure of predictive power.\
@@ -162,7 +170,7 @@ A well-designed model should not only provide a good fit to its own data but als
 While explanatory modelling focuses on understanding relationships between variables, through the significance, direction, and size of coefficients, predictive modelling aims to accurately forecast new outcomes. These two goals are distinct, but not mutually exclusive.\
 By adopting an EP (Explanatory and Predictive) approach, researchers can strike a balance: developing models that both explain the data and support reliable prescriptive insights. Ultimately, when the objective is to derive actionable conclusions, predictive power must be explicitly assessed, explanatory power alone is not enough.
 
-## Cross Country Generalizability of Predictive Power
+### Cross Country Generalizability of Predictive Power
 
 In the second part of our analysis, we explore whether a model trained in one country can predict outcomes in other countries.\
 We used the full ISSP data for Germany, the USA, and Japan, building one model per country. The bar chart in Figure 4 shows the R-squared of each model on its own country’s data, indicating how well it explains variation within its own context.\
@@ -178,26 +186,39 @@ The German model has the lowest explanatory power (R² = 0.384), but its data ar
 This second analysis shows that models trained in one country do not necessarily generalize well to other countries. Patterns that hold in one cultural or institutional context may not apply elsewhere.\
 We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability.
 
-# Extension: Determinants of Job Satisfaction
+# 5 Implications
+## 5.1  Discussion
+### Implications for HRM Theory and Practice
 
-## Standardized Coefficients across Countries
+### Challenges in Reproducing Published Analyses
 
-## Identifying Necessary Conditions with NCA
+### Comparison of Python, R/JASP, and SmartPLS Outcomes
 
-# Discussion
+## 5.2 Conclussion and Future Research
+### Summary of Key Findings
 
-## Implications for HRM Theory and Practice
+### Limitations of the Current Study
 
-## Challenges in Reproducing Published Analyses
+### Suggestions for Advancing Predictive Rigour in HRM
 
-## Comparison of Python, R/JASP, and SmartPLS Outcomes
 
-# Conclusion and Future Research
 
-## Summary of Key Findings
 
-## Limitations of the Current Study
 
-## Suggestions for Advancing Predictive Rigour in HRM
 
-# Use of AI
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Appendix
+## Use of AI
+
