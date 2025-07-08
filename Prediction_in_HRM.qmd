@@ -212,7 +212,22 @@ In contrast, _good relationship with management_, _good relationship with collea
 
 Both _relationship with management_ and _years of education_ demonstrate necessary conditions in the NCA. However, when compared with the standard regression analysis, they are classified differently based on their standardized coefficients. _Relationship with management_ is supported by its high standardized coefficient and is classified as a strong determinant. In contrast, _years of education_ is considered an insignificant determinant in the standard regression analysis due to its low standardized coefficient, but NCA provides additional insight by revealing it as a necessary condition. 
 
+![NCA Plots](images/NCA_Plot_relevant.png){fig-align="center"}
+
 This extension enables us not only to identify the significance of determinants based on sufficiency but also to explore whether a condition must be present at all—through necessity. This approach highlights that significant determinants can have a necessary condition or not, and the same applies to nonsignificant determinants.
+
+| Variable     | OLS results                      | NCA results                                    | Std. Coefficient | Effect size |
+|--------------|----------------------------------|------------------------------------------------|-------------------|--------------|
+| rel_mgmt     | significant determinant          | necessary condition with medium effect         | 0.343             | 0.125        |
+| educyrs      | nonsignificant determinant       | necessary condition with medium effect         | -0.018            | 0.109        |
+| rel_clgs     | slightly significant determinant | necessary condition with small effect          | 0.143             | 0.042        |
+| interesting  | significant determinant          | no necessary condition                         | 0.433             | 0            |
+| income       | nonsignificant determinant       | no necessary condition                         | 0.089             | 0            |
+| security     | slightly significant determinant | no necessary condition                         | 0.075             | 0            |
+| independent  | nonsignificant determinant       | no necessary condition                         | 0.070             | 0            |
+| advancement  | nonsignificant determinant       | no necessary condition                         | 0.021             | 0            |
+
+: Comparison of OLS Regression Results and NCA Findings
 
 # 5 Implications
 
