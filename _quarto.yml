@@ -1,0 +1,59 @@
+project:
+  type: book
+
+book:
+  title: "Prediction in Human Recourse Managment"
+  subtitle: "A gab between rhetoric and reality"
+
+  author: 
+    - name: "Abhinna Shah"
+      affiliation: "Hamburg University of Technology"
+      email: abhinna.shah@tuhh.de
+    - name: "Ariel Jeremi Wowor"
+      affiliation: "Hamburg University of Technology"
+      email: ariel.wowor@tuhh.de
+    - name: "Bianca Ricci"
+      affiliation: "Hamburg University of Technology"
+      email: bianca.ricci@tuhh.de
+    - name: "Marcel Dieti"
+      affiliation: "Hamburg University of Technology"
+      email: marcel.dieti@tuhh.de
+
+  date: today
+  chapters:
+    - index.qmd
+    - 01-introduction.qmd
+    - 02-theoretical-background.qmd
+    - 03-main-analysis.qmd
+    - 04-results.qmd
+    - 05-conclusion.qmd
+    - references.qmd
+    - appendix.qmd
+
+format:
+  pdf:
+    documentclass: scrreprt
+    papersize: a4
+    fontsize: 12pt
+    linestretch: 1.5
+    mainfont: "Times New Roman"
+    monofont: "Courier New"
+    geometry: top=2.5cm, bottom=2cm, left=2.5cm, right=2cm
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    fig-cap-location: top
+    tbl-cap-location: top
+    lof: true
+    lot: true
+    header-includes: |
+      \usepackage[english]{babel}
+      \usepackage{setspace}
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{}
+      \rfoot{\thepage}
+      \renewcommand{\footrulewidth}{0pt}
+      \renewcommand{\headrulewidth}{0pt}
+bibliography: references.bib
+csl: apa.csl

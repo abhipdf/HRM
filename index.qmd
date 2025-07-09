@@ -1,0 +1,20 @@
+---
+title: "Your Thesis Title"
+subtitle: "Subtitle (if any)"
+author: "Your Name"
+date: "2025-07-08"
+format: pdf
+---
+
+::: {.abstract}
+**Abstract**  
+Write your abstract here, summarizing your objectives, methods, results, and conclusion.
+:::
+
+# List of Abbreviations
+
+| Abbreviation | Meaning                          |
+|--------------|----------------------------------|
+| PLS          | Partial Least Squares            |
+| NPOs         | Nonprofit Organizations          |
+

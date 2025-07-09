@@ -1,0 +1,72 @@
+# Modeling Job Satisfaction in Aging Workforces 
+
+Job satisfaction is a central concept in organizational research, linked to outcomes such as turnover intentions, absenteeism, and job performance (Drabe et al, 2015). While previous studies have explored the relationship between age and overall satisfaction levels, often suggesting a curvilinear or weakly positive association, relatively little is known about the specific determinants of job satisfaction across different age groups. 
+
+Addressing this gap, Drabe et al. (2015) investigate how the relevance of situational job characteristics varies with age. Based on prior empirical research and theoretical models of work design, they focus on seven key job facets that are consistently associated with job satisfaction across national contexts: income, job security, advancement opportunities, interesting work, autonomy, and the quality of relationships with supervisors and colleagues. These predictors span intrinsic, extrinsic, and social dimensions and have been validated in cross-national studies, such as those by Sousa-Poza and Sousa-Poza (2000). 
+
+To explain age-related differences, the authors draw on established frameworks in adult development and motivational psychology, including socio-emotional selectivity theory (Carstensen, 1995), the selection–optimization–compensation model (Baltes et al., 1999), and the lifespan theory of control (Heckhausen & Schulz, 1995). These perspectives suggest that older employees shift their focus from growth-oriented to maintenance- and loss-avoidance goals, prioritizing emotionally meaningful work and stable relationships over extrinsic rewards. Drabe et al.’s (2015) empirical findings confirm that older employees place greater value on collegial relationships and less emphasis on income, advancement, or job security, although these effects vary by country. 
+
+Overall, their model offers a theory-driven and empirically grounded framework for understanding age-differentiated job satisfaction, particularly in the context of demographic change and international human resource management. 
+
+## Evaluating Predictive Models using Regression Analysis 
+
+In assessing the predictive utility of a model, it is crucial to select metrics that capture different dimensions of performance. Among the various available metrics, R-squared (R²), Root Mean Square Error (RMSE), and Mean Absolute Error (MAE) are particularly valuable because they provide complementary insights into goodness-of-fit, error magnitude, and interpretability. 
+
+### R-squared (R²) 
+
+R-squared quantifies the proportion of variance in the dependent variable that is explained by the independent variables. It serves as a central indicator of in-sample goodness-of-fit and helps assess the strength of association within the estimation dataset [@Sarstedt2021]. R² is widely used due to its intuitive, scale-free interpretation as a percentage (ranging from 0 to 100), making it accessible for communicating how much of the outcome variance is accounted for by the model. However, a high in-sample R² is not necessarily indicative of strong predictive power. Models can exhibit high R² values by overfitting to sample-specific noise, which undermines generalizability to new data [@Sarstedt2021]. 
+ 
+### Root Mean Square Error (RMSE) 
+
+RMSE is a commonly used metric for assessing predictive accuracy and reflects the standard deviation of residuals, i.e., the differences between predicted and observed values [@Sarstedt2021]. As a quadratic scoring rule, RMSE disproportionately penalizes larger errors, making it especially sensitive to extreme deviations. One of RMSE's primary advantages is that it is expressed in the same units as the dependent variable, which enhances its practical interpretability. For example, in a model predicting job satisfaction on a 1–7 scale, an out-of-sample RMSE of 0.9 conveys the typical magnitude of prediction error in real terms [@Sarstedt2021]. This makes RMSE a particularly informative metric for evaluating predictive utility on holdout data. 
+ 
+
+## Understanding the Decline in Predictive Accuracy: Statistical and Contextual Perspectives
+A frequent observation in predictive modeling, particularly within applied fields like Human Resource Management (HRM), is that model performance often degrades when applied to new data or shifted contexts. This reduction in predictive accuracy can be attributed to a combination of statistical factors and real-world contextual changes that affect the generalizability and stability of models.
+
+One primary statistical explanation is overfitting. Overfitting occurs when a model is excessively tailored to its training data, capturing random noise in addition to meaningful patterns. While such models may display high explanatory power—such as a strong in-sample R²—they tend to generalize poorly when applied to unseen data. This is because the patterns the model has learned may be idiosyncratic to the training set and not reflective of broader underlying relationships [@Sarstedt2021].
+
+Closely related to this is the issue of sample-specific variance. Each dataset represents a random sample drawn from a larger population and is thus influenced by its own unique idiosyncrasies. As a result, a model optimized on one sample may fail to replicate its performance on another due to sampling variability alone. This phenomenon is well-documented in studies where models with similar in-sample fit exhibit wide variability in out-of-sample performance metrics, such as RMSE, across different resampled datasets.
+
+Beyond these statistical issues, there are substantive, real-world factors that contribute to the decline in predictive performance, particularly in the domain of HRM. One such factor is limited generalizability across contexts. Predictive models developed in one national, organizational, or cultural environment may not transfer well to others. For example, the drivers of employee satisfaction or turnover may differ significantly between countries such as Japan and the United States due to differences in institutional norms, social structures, and cultural expectations [@Sarstedt2021]. This context-specificity can severely limit the external validity of predictive models.
+
+Another important contextual factor is temporal instability. The predictors of key HRM outcomes—such as job satisfaction or employee engagement—are not static over time. Economic shifts, labor market changes, technological advancements, and evolving workforce demographics can all alter the relevance or strength of previously identified predictors. Empirical evidence shows that models calibrated on data from one time period (e.g., 2005) often fail to maintain their predictive accuracy in subsequent years (e.g., 2015), highlighting how temporal changes can undermine model robustness [@Sarstedt2021].
+
+Together, these statistical and contextual explanations underscore the complexity of building predictive models that are both accurate and generalizable. Recognizing and addressing these challenges is essential for the responsible use of predictive analytics, especially in dynamic and context-sensitive fields such as HRM.
+ 
+
+## Assumptions Underlying Multiple Regression Analysis 
+
+In order to draw valid inferences from multiple regression analysis, several key statistical assumptions must be satisfied. Although it can be reasonably assumed that Drabe et al. (2015) tested the necessary assumptions in their original cross-national analysis of job satisfaction in the U.S., Japan, and Germany, this section underscores their theoretical relevance in the context of multivariate analysis. Meeting these assumptions is essential for obtaining unbiased, consistent, and efficient parameter estimates. Violations can lead to distorted coefficients, underestimated standard errors, inflated Type I error rates, and ultimately, erroneous conclusions (Hair et al., 2018, pp. 287–292). Accordingly, rigorous diagnostic testing forms an integral part of any regression-based empirical investigation. 
+
+The following subsections provide a theoretical overview of the four key assumptions underpinning multiple regression analysis: (1) linearity of the phenomenon, (2) constant variance of the error terms, (3) normality of the error term distribution, and (4) absence of multicollinearity among predictors. 
+
+### Linearity of the Phenomenon 
+
+The assumption of linearity posits that there is a straight-line relationship between each independent variable and the dependent variable. This implies that changes in the dependent variable are proportional to changes in the independent variables, holding other factors constant. If the true relationship is nonlinear and a linear model is applied, the resulting estimates will be biased and may misrepresent the strength or direction of effects (Hair et al., 2018, pp. 288–290). 
+
+Linearity is typically evaluated through a graphical diagnostic in which residuals are plotted against predicted values of the dependent variable. A random scatter of residuals supports the linearity assumption, whereas visible curves or systematic patterns suggest potential misspecification of the model. Such deviations may indicate the need for data transformation or the inclusion of nonlinear terms to adequately capture the relationship (Hair et al., 2018, pp. 288–290). 
+
+### Constant Variance of the Error Terms 
+
+The assumption of homoscedasticity requires that the variance of residuals remains constant across all levels of the independent variables. When this condition is violated, known as heteroscedasticity, the residual variance changes systematically, which can result in biased standard errors and, consequently, unreliable hypothesis testing (Hair et al., 2018, p. 290). 
+
+To detect heteroscedasticity, researchers commonly inspect scatterplots of standardized residuals versus predicted values. A funnel-shaped or fan-like dispersion of residuals indicates potential violations. If heteroscedasticity is detected, several remedial strategies may be employed: transforming the offending variables using variance-stabilizing transformations, applying weighted least squares to adjust for varying variance, or computing heteroscedasticity-consistent standard errors to ensure robust inference (Hair et al., 2018, p. 290). 
+
+### Normality of the Error Term Distribution 
+
+The assumption of normality holds that the residuals of the regression model should be normally distributed. While the estimation of regression coefficients does not require normality, hypothesis testing and the construction of confidence intervals depend on this assumption (Hair et al., 2018, p. 291). 
+
+Visual diagnostics such as histograms and Q–Q plots (i.e., normal probability plots) are commonly used to assess the normality of residuals. In a Q–Q plot, normally distributed residuals align closely along a 45-degree diagonal line, while systematic deviations, particularly in the tails, may indicate skewness or kurtosis. Although multiple regression is generally robust to moderate violations of normality, substantial departures may require data transformation or alternative estimation approaches (Hair et al., 2018, p. 291). 
+
+### Absence of Multicollinearity 
+
+Multicollinearity occurs when two or more independent variables are highly correlated, leading to redundancy in the model. It inflates standard errors, complicates the interpretation of coefficients, and can make estimates unstable. Variance Inflation Factors (VIFs) are commonly used to diagnose this issue, where VIF is the inverse of the tolerance value (VIF = 1/TOL). A VIF value above 10 is considered critical, although more conservative thresholds (e.g., VIF > 5 or even > 2.5) are often applied in practice depending on the sample size and context (Hair et al., 2018, pp. 312–316). Lower tolerance values indicate that a higher proportion of variance in a given predictor is shared with other variables, signaling potential multicollinearity. 
+
+## Integrating Regression Analysis with Necessary Condition Analysis 
+
+Following the validation of linear regression assumptions outlined in the previous chapter, this research aims to extend the analysis of the replicated model through a comprehensive examination of covariates to determine the most significant determinants. When comparing variables measured in different units, establishing a common scale becomes essential. Consequently, standardized coefficients are employed to evaluate critical determinants within the job satisfaction model, as they allow for assessment of each independent variable's relative magnitude and enable comparison of their predictive capabilities [Hair2018]. Therefore, this approach answers the question of which independent variable has the most influence on job satisfaction. 
+
+However, while standardized coefficients reveal factors are influential, they do not indicate whether specific conditions are prerequisite for particular outcomes. Relying solely on a traditional coefficient analysis with standardized coefficients would mean classifying the variable with the highest coefficient as the most important determinant and risking the neglect of other variables with lower values. This limitation is addressed through NCA, a methodology introduced by [@Dul2016] that focuses on identifying necessary conditions within datasets. More specifically, these conditions represent fundamental prerequisites that must be present for particular outcomes to occur. 
+
+In 2020, Richter et al. extended NCA by integrating it with regression-based analysis using PLS-SEM [@Richter2020]. In this study, instead of applying PLS-SEM, NCA is combined with a simple multiple regression model following the guidelines proposed by Richter et al. Details about the NCA methodology will be discussed in Chapter 3. 

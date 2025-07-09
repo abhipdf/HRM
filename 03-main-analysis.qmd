@@ -1,0 +1,74 @@
+# Methodological Approach for Replication and Extension 
+
+## Replication Across Three Analytical Programs 
+
+Through multiple linear regression we estimated linear models that describe the relationship between job satisfaction and a set of predictors separately for each country, namely USA, Germany, and Japan, and the combined dataset. 
+In order to ensure the comparability of the coefficients of the models it is necessary to standardize all continuous variables (e.g. education years, income) before estimating the linear models. According to Hair et al. (2018), standardization involves rescaling the variables to have a mean to zero and a standard deviation of one. This choice allows us to be able to directly compare the relative strengths of each predictors’ effect on job satisfaction, by quantifying the change in the outcome (measure in standard deviations) for a one standard deviation increase in the predictor. 
+
+Secondly, we evaluated each model using 10-fold cross-validation. For each country-specific dataset, the data was split into 10 subsets: in each of the 10 iterations, the model was trained on 9 of these folds and tested on the remaining one. This process was repeated so that each fold served once as the test set. After the all 10 rounds, we compute the average performance metrics (RMSE and R²) across the 10 folds to get an estimate of the model’s generalizability. This method allows to evaluate in a robust way the predictive performance and minimizing overfitting by repeatedly training the model on different subsets of the data and testing it on data it hasn’t seen. This help to evaluate if the model captures specific noises of the training data, rather than the true underlying patterns. 
+
+To investigate whether better in-sample model fit (R²) translates into higher predictive accuracy, we assessed both the explanatory and predictive power of models trained on contextually similar datasets. Specifically, we repeatedly drew random samples of 500 observations (1,000 replications) from a country-specific dataset. Each sample was split evenly into a training set and a test set, with 250 observations each. We then estimated a linear model on the training set and computed two metrics: the in-sample RMSE, measuring the error between predicted and actual job satisfaction within the training set, and the R², indicating the proportion of variance explained. Next, we generated predictions on the test set and calculated the out-of-sample RMSE to assess how the model performs on unseen data. Finally, we plotted the relationships between R² and out-of-sample RMSE, and between in-sample and out-of-sample RMSE, to examine how model fit relates to predictive performance. 
+
+To better understand how predictive performance behaves under similar levels of explanatory power, we also zoomed in on a narrow window around the median R² value (±0.01). Within this range, we explored the spread of out-of-sample RMSE values to assess how much prediction accuracy can vary even when models show comparable in-sample fit. 
+
+Finally, to evaluate whether a model developed in one specific context can generalize well if applied to other contexts, we used each country-specific model to predict job satisfaction in the other countries’ datasets, by computing RMSE on unseen data. Since predictions were on standardized scale, they were unstandardized using the training model’s scale and mean to make predictions errors (RMSE) comparable to actual job satisfaction levels in the test country. 
+
+ 
+
+## Data Source and Preprocessing Steps 
+
+ 
+
+### ISSP 2015 Work Orientation Dataset 
+
+The ISSP 2015 Work Orientation module provides harmonized, publicly available survey data from multiple countries. We selected three national subsamples United States (USA; n = 915), Germany (GER; n = 899), and Japan (JPN; n = 635). The dependent variable, job satisfaction (job_sat), was measured on a 1–7 Likert scale. Independent variables matched those used by Drabe et al. These are as follows: [@Drabe2015]. 
+
++-----------------------------------------+------------------------------+
+| Variable                                | Intrinsic/Extrinsic          |
++=========================================+==============================+
+| Gender (sex)                            | Intrinsic demographic        |
++-----------------------------------------+------------------------------+
+| Age Category                            | Intrinsic demographic        |
+|                                         |                              |
+| (Age_cat: ≤35, 36–49, ≥50)              |                              |
++-----------------------------------------+------------------------------+
+| Education (educyrs)                     | Intrinsic human‐capital      |
++-----------------------------------------+------------------------------+
+| Income                                  | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job security (security)                 | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job interest (interesting)              | Intrinsic job characteristic |
++-----------------------------------------+------------------------------+
+| Autonomy (independent)                  | Intrinsic job characteristic |
++-----------------------------------------+------------------------------+
+| Relationship with management (rel_mgmt) | Social work context          |
++-----------------------------------------+------------------------------+
+| Relationship with colleagues (rel_clgs) | Social work context          |
++-----------------------------------------+------------------------------+
+| Advancement opportunities (advancement) | Extrinsic reward             |
++-----------------------------------------+------------------------------+
+| Job satisfaction (job_sat)              | Outcome Variable             |
++-----------------------------------------+------------------------------+
+
+: Variables defining Job satisfaction
+
+### Handling Missing Data and Case‐Wise Deletion 
+
+Survey items exhibited uneven missingness across countries (up to 35% for some items). In line with Sarstedt and Danks (2021), we applied case‐wise deletion to maintain consistent sample composition for comparative modeling, accepting potential reductions in statistical power to preserve internal validity. 
+
+![Heatmap of percentage Missing Data by column.](images/missing_data_heatmap.png) 
+
+### Reverse Coding 
+
+In the ISSP survey, higher numerical responses sometimes indicate less favorable conditions (e.g., “1 = Very satisfied” to “7 = Very dissatisfied”). To ensure that all predictors align directionally with job satisfaction, i.e., higher values lead to a higher outcome, we reversed scales so that greater values consistently denote more positive levels. This simplifies interpretation: a positive regression coefficient uniformly implies that increases in the predictor raise satisfaction. 
+ 
+## Extended Analysis of Determinants 
+
+To determine the most influential independent variable for job satisfaction, standardized coefficients are used for comparison. Following the examination of relationships between dependent and independent variables using these coefficients, NCA proceeds to identify areas in scatter plots that indicate the presence of necessary conditions [@Richter2020]. In our model, the independent variables (X) presented in **Table XX** are treated as potential necessary conditions for Job Satisfaction (Y). This implies that if a necessary condition is not met, failure to achieve the desired outcome is guaranteed. However, NCA examines each variable individually, treating the necessary condition as operating in isolation and independently of context [@Richter2020]. Therefore, the absence of a necessary condition cannot be compensated for by other conditions or determinants. 
+
+NCA uses scatter plots to visualize the necessity relationship between an independent variable and an outcome, dividing the plot into two distinct areas, as shown in **Figure xx**. The area where observations occur is called the total zone (scope), while the area without observations is referred to as the empty zone (ceiling). 
+
+![Ceiling Line Chart for Education (Years) as Predictor of Job Satisfaction](images/nca_ceiling_chart_education_modified.png) 
+
+An empty zone indicates a necessary condition, with its size providing a way to assess the strength of that requirement. To quantify this strength, [@Richter2020] describe two key NCA parameters, which are the ceiling accuracy and the necessity effect size d. The necessity effect size d measures how much of the outcome space is constrained by a necessary condition, ranging from 0 to 1. Values of *d* are interpreted as small (0–0.1), medium (0.1–0.3), large (0.3–0.5), and very large (≥0.5) effects [@Dul2016]. While *d* ≥ 0.1 is often used to support necessity hypotheses, its value indicates the substantive importance of the condition. Ceiling accuracy reflects the percentage of observations on or below the ceiling line. The CE-FDH line always achieves 100% accuracy, while lines like CR-FDH may have lower accuracy. Although no strict threshold exists, benchmarks (e.g., 95%) can help evaluate solution quality [@Dul2016]. However, because the data in this model are discrete rather than continuous, only the CE-FDH line is relevant, with 100% accuracy expected. Therefore, in this research, the necessity effect size measurement is the primary focus of the NCA. 

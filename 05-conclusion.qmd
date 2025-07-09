@@ -1,0 +1,11 @@
+# Conclusion and Directions for Future Research 
+
+To conclude, while we were able to replicate the main results of the original study using R, the outcomes were not identical to those reported in the paper. This highlights a key challenge in replicating research: when data manipulation steps are not fully disclosed, even publicly available datasets and studies become difficult to reproduce with complete accuracy. 
+
+Secondly, our comparative analysis using different platforms such as R and Python showed that though these tools provide broadly consistent insights, the results can vary slightly depending on the platform used. This underlines the importance of transparency and standardization in research workflows.  
+
+Finally, our extension using NCA offered deeper insights into the model by identifying variables that are essential for achieving certain levels of job satisfaction. Through NCA we observed that certain variables which appeared insignificant in traditional analysis can nevertheless have a necessity effect. 
+
+This finding has practical implications for business practitioners. In our case, without NCA there is a risk of only focusing on good relationship with management if firms want to maintain job satisfaction while ignoring other variables. However, results of this study show that variables with low standardized coefficients can be important by providing necessity levels for certain outcomes. This approach can result not only in better predictive performance but also improved resource allocation decisions. 
+
+Future research could extend this model framework in several directions. Our work establishes the foundation for determining job satisfaction, which represents an important variable for predicting worker turnover, though this connection was not explored here. A logical next step would be extending this model to worker turnover and using NCA to examine job satisfaction as a necessary condition for turnover outcomes. Researchers applying regression models should follow the framework of checking assumptions of linearity first. Future studies might identify other variables besides job satisfaction, such as organizational commitment, that influence worker turnover. Such results would reveal not only which variables are important but also what necessary conditions are required for specific outcomes. 
