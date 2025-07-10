@@ -1,12 +1,10 @@
-::: {.abstract}
-**Abstract**  
-Write your abstract here, summarizing your objectives, methods, results, and conclusion.
-:::
+# List of abbreviation 
 
-# List of Abbreviations
-
-| Abbreviation | Meaning                          |
-|--------------|----------------------------------|
-| RSME          | Root Mean Squared Error            |
-| MAE         | Mean Absolute Error        |
-
+| Abbreviation | Definition |
+|--------------|------------|
+| HRM | Human Resource Management |
+| ISSP | International Social Survey Programme |
+| RMSE | Root Mean Squared Error |
+| NCA | Necessary Condition Analysis |
+| HR | Human Resource |
+| VIF | Variance Inflation Factor |

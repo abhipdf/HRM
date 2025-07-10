@@ -10,7 +10,7 @@ To assess linearity, we examined the scatterplot of standardized residuals again
 
 Importantly, there is no systematic curvature or visible trend in the residuals. Therefore, the assumption of linearity appears to be reasonably satisfied.
 
-![Standardized residuals against predicted values](images/Linearity of the Phenomenon.jpg){fig-align="center"}
+![Standardized residuals against predicted values](images/Linearity%20of%20the%20Phenomenon.jpg){fig-align="center" width="500"}
 
 ### Constant Variance of the Error Terms
 
@@ -24,9 +24,9 @@ Normality of residuals was assessed using a Q–Q plot and a histogram with dens
 
 The histogram further supports this assessment by displaying a roughly symmetric, bell-shaped distribution. Taken together, both diagnostic plots suggest that the residuals are approximately normally distributed, thereby supporting the validity of significance tests and confidence intervals that depend on this assumption.
 
-![Histogram with density overlay](images/Histogram with density overlay.jpg)
+![Histogram with density overlay](images/Histogram%20with%20density%20overlay.jpg){fig-align="center" width="500"}
 
-![Q–Q Plot](images/QQ.jpg){fig-align="center"}
+![Q–Q Plot](images/QQ.jpg){fig-align="center" width="500"}
 
 ### Absence of Multicollinearity
 
@@ -95,7 +95,7 @@ From the results, the Japanese model shows to have the highest R-squared (0.508)
 
 Furthermore, no other model predicts the Japanese data well, indicating that job satisfaction in Japan may follow idiosyncratic patterns not captured by models trained elsewhere. 
 
-The German model has the lowest explanatory power (R² = 0.384), but its data are reasonably well predicted by both the USA and Japan models. This may mean that the German model omits some relevant predictors or suffers from multicollinearity. At the same time, the predictors that matter in the USA and Japan might partially capture variation in the German context.
+The German model has the lowest explanatory power (R² = 0.384), but its data are reasonably well predicted by both the USA and Japan models. This may mean that the German model omits some relevant predictors. At the same time, the predictors that matter in the USA and Japan might partially capture variation in the German context.
 
 ![Ability of each country-specific model to fit its own country data](images/cross_prediction.png){fig-align="center"}
 
@@ -103,26 +103,24 @@ The German model has the lowest explanatory power (R² = 0.384), but its data ar
 
 ## Extension Results
 
-**Figure xx** illustrates the main determinants of job satisfaction, ranked from highest to lowest. Having an interesting job and maintaining a good relationship with management emerge as the strongest determinants, while education ranks among the weaker predictors. The overall ordering of predictors aligns closely with the original model from \[paper xyz\], showing only minor differences in the coefficient values. Although the order and direction of some predictors may vary across countries, these patterns remain consistent with those observed in the original model from \[paper xyz\]. The full set of coefficients across different languages (Python, R, and SmartPLS) is provided in **Table xy** in the appendix.
+Moving beyond the replication, this section presents the results of our extended analysis using standardized coefficients and NCA to identify both influential and essential determinants of job satisfaction. Figure 5.8 illustrates the main determinants of job satisfaction, ranked from highest to lowest. Having an interesting job and maintaining a good relationship with management emerge as the strongest determinants, while education ranks among the weaker predictors. The overall ordering of predictors aligns closely with the model from [@Sarstedt2021], showing only minor differences in the coefficient values. Although the order and direction of some predictors may vary across countries, these patterns remain consistent with those observed in the original model. The full set of coefficients across different languages (Jasp and Python) is provided in the Appendix A.
 
 ![Cross-National Comparison of Standardized Regression Coefficients](images/std_coef_ranking.png){fig-align="center"}
 
 For the NCA analysis, control variables such as age group and gender are excluded because they are categorical. The variables interesting work, income, job security, working independently and opportunities for advancement show no empty zone in the scatter plots, with observations spread across all attribute levels. This indicates that there is no necessary condition for these independent variables. A summary table of all results is provided in the appendix.
 
-In contrast, good relationship with management, good relationship with colleagues, and years of education\*emerge as variables with necessary conditions. All of these variables have 100% ceiling accuracy and effect sizes greater than zero. However, the effect size for relationship with colleagues is 0.042, which is considered too small to be meaningful and can therefore be ignored. Relationship with management shows the highest effect size at 0.125 and is classified as the strongest determinant of job satisfaction. Years of education has an effect size of 0.109, ranking second in NCA.
+In contrast, good relationship with management, good relationship with colleagues, and years of education emerge as variables with necessary conditions. Table 5.2 shows that all of these variables have 100% ceiling accuracy and effect sizes greater than zero. However, the effect size for relationship with colleagues is 0.042, which is considered too small to be meaningful and can therefore be ignored. Relationship with management shows the highest effect size at 0.125 and is classified as the strongest determinant of job satisfaction. Years of education has an effect size of 0.109, ranking second in NCA.
 
-These findings are further illustrated in Figure zz, where the step function ceiling line (CE-FDH) demonstrates specific threshold requirements for each variable. The left plot shows that achieving maximum job satisfaction requires a minimum relationship with management level of 2. When the relationship with management remains at the lowest level (1), job satisfaction cannot exceed level 4. The right plot reveals similar threshold patterns for education: reaching a job satisfaction level of 4 necessitates at least 8 years of education, while achieving maximum job satisfaction requires a minimum of 9 years of education. Additionally, the data indicates that a minimum threshold of 4 years of education is necessary to have any meaningful effect on job satisfaction.
+These findings are further illustrated in Figure 5.9, where the step function ceiling line (CE-FDH) demonstrates specific threshold requirements for each variable. The left plot shows that achieving maximum job satisfaction requires a minimum relationship with management level of 2. When the relationship with management remains at the lowest level (1), job satisfaction cannot exceed level 4. The right plot reveals similar threshold patterns for education: reaching a job satisfaction level of 4 necessitates at least 8 years of education, while achieving maximum job satisfaction requires a minimum of 9 years of education. Additionally, the data indicates that a minimum threshold of 4 years of education is necessary to have any meaningful effect on job satisfaction.
 
-![NCA Plots](images/NCA_Plot_relevant.png){fig-align="center"}
+![NCA Ceiling Line Chart of Relevant Independent Variables](images/NCA_Plot_relevant.png){fig-align="center"}
 
 Comparing these NCA results with standard regression analysis reveals important distinctions. While both relationship with management and years of education demonstrate necessary conditions in NCA, they are classified differently based on their standardized coefficients in traditional analysis. Relationship with management is supported by its high standardized coefficient and is classified as a strong determinant in both approaches. Conversely, years of education is considered an insignificant determinant in standard regression analysis due to its low standardized coefficient, yet NCA reveals it as a necessary condition with meaningful predictive implications.
 
 This extension enables us not only to identify the significance of determinants based on sufficiency but also to explore whether a condition must be present at all through necessity. This approach highlights that significant determinants can have a necessary condition or not, and the same applies to nonsignificant determinants.
 
-Comparison of OLS regression results and Necessary Condition Analysis (NCA) findings.
-
 | Variable | OLS Results | NCA Results | Std. Coefficient | Effect Size |
-|-------------|-------------|--------------------|-------------|-------------|
+|---------------|---------------|---------------|---------------|---------------|
 | rel_mgmt | significant determinant | necessary condition with medium effect | 0.343 | 0.125 |
 | educyrs | nonsignificant determinant | necessary condition with medium effect | -0.018 | 0.109 |
 | rel_clgs | slightly significant determinant | necessary condition with small effect | 0.143 | 0.042 |

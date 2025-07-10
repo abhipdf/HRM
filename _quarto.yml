@@ -19,6 +19,12 @@ book:
       affiliation: "Hamburg University of Technology"
       email: marcel.dieti@tuhh.de
 
+  abstract: |
+    **Abstract**  Human Resource Management (HRM) research frequently makes prescriptive claims based on explanatory models, yet often fails to assess their predictive validity. This study empirically investigates the gap between explanation and prediction by questioning whether strong in-sample model fit translates to high out-of-sample predictive accuracy. The research objectives were to (1) evaluate the relationship between explanatory power and predictive performance within and across national contexts, and (2) identify not only influential but also necessary conditions for job satisfaction.
+    This study replicates and extends the job satisfaction model of Drabe et al. (2015) using the International Social Survey Programme (ISSP) 2015 dataset for Germany, Japan, and the United States. The methodology combines multiple linear regression with 10-fold cross-validation to compare in-sample R-squared (R²) with out-of-sample Root Mean Squared Error (RMSE). The analysis is extended with Necessary Condition Analysis (NCA) to identify prerequisite factors for job satisfaction.
+    The findings reveal a significant disconnect between explanation and prediction; models with high R² do not guarantee strong predictive performance and, in some cases, indicate overfitting. The NCA extension identified necessary conditions in the variables 'relationship with management' and 'years of education' for achieving a certain level of job satisfaction. Notably, standard regression analysis classified 'education' as a non-significant predictor, demonstrating that the combined regression-NCA approach offers a more nuanced understanding by distinguishing between influential and essential factors.
+    This research concludes that predictive validation is essential for the credibility of prescriptive HRM models. By integrating NCA, practitioners can develop more robust models that improve resource allocation by focusing on both sufficient and necessary drivers of employee outcomes. The study underscores the need for methodological rigor and transparency to ensure research is both replicable and practically relevant.
+
   date: today
   chapters:
     - index.qmd
@@ -40,12 +46,12 @@ format:
     monofont: "Courier New"
     geometry: top=2.5cm, bottom=2cm, left=2.5cm, right=2cm
     toc: true
+    lof: true
+    lot: true
     toc-depth: 2
     number-sections: true
     fig-cap-location: top
     tbl-cap-location: top
-    lof: true
-    lot: true
     header-includes: |
       \usepackage[english]{babel}
       \usepackage{setspace}
@@ -55,5 +61,13 @@ format:
       \rfoot{\thepage}
       \renewcommand{\footrulewidth}{0pt}
       \renewcommand{\headrulewidth}{0pt}
+  docx:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    fig-cap-location: top
+    tbl-cap-location: top
+    page-width: 8.5
+    page-height: 11
 bibliography: references.bib
 csl: apa.csl
