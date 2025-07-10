@@ -1,11 +1,3 @@
----
-title: "Your Thesis Title"
-subtitle: "Subtitle (if any)"
-author: "Your Name"
-date: "2025-07-08"
-format: pdf
----
-
 ::: {.abstract}
 **Abstract**  
 Write your abstract here, summarizing your objectives, methods, results, and conclusion.
@@ -15,6 +7,6 @@ Write your abstract here, summarizing your objectives, methods, results, and con
 
 | Abbreviation | Meaning                          |
 |--------------|----------------------------------|
-| PLS          | Partial Least Squares            |
-| NPOs         | Nonprofit Organizations          |
+| RSME          | Root Mean Squared Error            |
+| MAE         | Mean Absolute Error        |
 

@@ -1,139 +1,135 @@
-# Results: Findings/Analysis/Interpretation 
+# Results: Findings/Analysis/Interpretation
 
-## Assumption Diagnostics of the Multiple Regression Model 
+## Assumption Diagnostics of the Multiple Regression Model
 
-Before interpreting the results of the multiple regression analysis, we conducted diagnostic checks to verify whether the key statistical assumptions underlying the least squares estimation procedure were satisfied. These assumptions are fundamental to ensuring the validity, accuracy, and interpretability of the model estimates (Hair et al., 2018, pp. 287–292). All diagnostic tests were performed in JASP (Version 0.19.3) using the processed data from the International Social Survey Programme (ISSP): Work Orientations IV – 2015. 
+Prior to interpreting the regression results, we assessed whether the key assumptions underlying the ordinary least squares estimation were satisfied. This diagnostic step ensures the robustness and validity of subsequent inferences [@Hair2018]. The analysis was conducted for the pooled dataset, and all tests were performed using JASP (Version 0.19.3).
 
-### Linearity of the Phenomenon 
+### Linearity of the Phenomenon
 
-To assess linearity, we examined the scatterplot of standardized residuals against predicted values (see Figure 1). The plot shows distinct parallel bands, which reflect the discrete 7-point Likert scale used to measure job satisfaction. Such patterns are expected in ordinal survey data and do not inherently violate the assumption. 
+To assess linearity, we examined the scatterplot of standardized residuals against predicted values (see Figure Standardized residuals against predicted values). The plot shows distinct parallel bands, which reflect the discrete 7-point Likert scale used to measure job satisfaction. Such patterns are expected in ordinal survey data and do not inherently violate the ass
 
-Importantly, there is no systematic curvature or visible trend in the residuals. Therefore, the assumption of linearity appears to be reasonably satisfied. 
+Importantly, there is no systematic curvature or visible trend in the residuals. Therefore, the assumption of linearity appears to be reasonably satisfied.
 
+![Standardized residuals against predicted values](images/Linearity of the Phenomenon.jpg){fig-align="center"}
 
-### Constant Variance of the Error Terms 
+### Constant Variance of the Error Terms
 
-The same residual plot (Figure 1) was inspected to evaluate homoscedasticity. The spread of residuals is approximately uniform across the range of predicted values. No fan-shaped or funnel-like patterns are apparent, which would indicate heteroscedasticity. 
+The same residual plot (Figure Standardized residuals against predicted values) was inspected to evaluate homoscedasticity. The spread of residuals is approximately uniform across the range of predicted values. No fan-shaped or funnel-like patterns are apparent, which would indicate heteroscedasticity.
 
-Although the banding pattern persists due to the ordinal measurement scale, the residuals exhibit consistent variance, suggesting that the homoscedasticity assumption holds. Consequently, standard errors and significance tests derived from the model can be considered reliable. 
+Although the banding pattern persists due to the ordinal measurement scale, the residuals exhibit consistent variance, suggesting that the homoscedasticity assumption holds. Consequently, standard errors and significance tests derived from the model can be considered reliable.
 
-### Normality of the Error Term Distribution 
+### Normality of the Error Term Distribution
 
-Normality of residuals was assessed using a Q–Q plot and a histogram with density overlay (see Figures 2a and 2b). The Q–Q plot indicates that most standardized residuals fall closely along the diagonal reference line. A slight deviation at the upper tail is observed, but it remain within acceptable limits. 
+Normality of residuals was assessed using a Q–Q plot and a histogram with density overlay (see Figures below). The Q–Q plot indicates that most standardized residuals fall closely along the diagonal reference line. A slight deviation at the upper tail is observed, but it remain within acceptable limits.
 
-The histogram further supports this assessment by displaying a roughly symmetric, bell-shaped distribution. Taken together, both diagnostic plots suggest that the residuals are approximately normally distributed, thereby supporting the validity of significance tests and confidence intervals that depend on this assumption. 
+The histogram further supports this assessment by displaying a roughly symmetric, bell-shaped distribution. Taken together, both diagnostic plots suggest that the residuals are approximately normally distributed, thereby supporting the validity of significance tests and confidence intervals that depend on this assumption.
 
+![Histogram with density overlay](images/Histogram with density overlay.jpg)
 
-### Absence of Multicollinearity 
+![Q–Q Plot](images/QQ.jpg){fig-align="center"}
 
-To assess whether multicollinearity posed a threat to the interpretability of the regression coefficients, we examined the Variance Inflation Factor (VIF) and tolerance statistics for each predictor (see Figure 4). According to Hair et al. (2018), VIF values below 5 are generally considered acceptable, with more conservative thresholds set at 2.5 depending on context. 
+### Absence of Multicollinearity
 
-In the present analysis, all VIF values are well below the critical value of 5, ranging from 1.012 (Gender) to 1.30 (Good relationship with management). The corresponding tolerance values range from 0.769 to 0.988, indicating that no predictor shares more than 23% of its variance with other independent variables. This suggests a low degree of redundancy among predictors. 
+To assess whether multicollinearity posed a threat to the interpretability of the regression coefficients, we examined the Variance Inflation Factor (VIF) and tolerance statistics for each predictor (see Figure 4). According to Hair et al. (2018), VIF values below 5 are generally considered acceptable, with more conservative thresholds set at 2.5 depending on context.
 
-The highest VIF observed (1.30 for "Good relationship with management") does not raise concern, as it still indicates a high level of predictor independence. Thus, multicollinearity is not present at problematic levels in the model. These findings support the statistical reliability and stability of the estimated regression coefficients and allow for valid interpretation of individual predictor effects (Hair et al., 2018, pp. 312–316). 
+In the present analysis, all VIF values are well below the critical value of 5, ranging from 1.012 (Gender) to 1.30 (Good relationship with management). The corresponding tolerance values range from 0.769 to 0.988, indicating that no predictor shares more than 23% of its variance with other independent variables. This suggests a low degree of redundancy among predictors.
+
+The highest VIF observed (1.30 for "Good relationship with management") does not raise concern, as it still indicates a high level of predictor independence. Thus, multicollinearity is not present at problematic levels in the model. These findings support the statistical reliability and stability of the estimated regression coefficients and allow for valid interpretation of individual predictor effects (Hair et al., 2018, pp. 312–316).
 
 ### Collinearity Statistics Table
 
 The table below summarizes the collinearity statistics for the predictors in the multiple regression model:
 
-| Predictor                        | Coefficient (Unstandardized) | Standard Error | Coefficient (Standardized)a | t       | p       | Tolerance | VIF  |
-|----------------------------------|------------------------------|----------------|-----------------------------|---------|---------|-----------|------|
-| Gender (reference: female)       | -0.005                       | 0.036          |                             | -0.128  | 0.898   | 0.988     | 1.012 |
-| Age (reference <=35)             |                              |                |                             |         |         |           |      |
-| 36-49                            | 0.041                        | 0.046          |                             | 0.883   | 0.377   | 0.979     | 1.022 |
-| >=50                             | 0.153                        | 0.045          |                             | 3.399   | < .001  |           |      |
-| Education                        | -0.02                        | 0.006          | -0.05                       | -3.482  | < .001  | 0.98      | 1.021 |
-| Income                           | 0.105                        | 0.018          | 0.095                       | 5.699   | < .001  | 0.85      | 1.176 |
-| Advancement opportunities        | 0.044                        | 0.019          | 0.041                       | 2.296   | 0.022   | 0.786     | 1.272 |
-| Job security                     | 0.096                        | 0.018          | 0.088                       | 5.442   | < .001  | 0.877     | 1.14  |
-| Interesting job                  | 0.448                        | 0.02           | 0.381                       | 22.3    | < .001  | 0.83      | 1.205 |
-| Independent work                 | 0.037                        | 0.015          | 0.039                       | 2.423   | 0.015   | 0.87      | 1.149 |
-| Good relationship with management| 0.356                        | 0.025          | 0.263                       | 14.278  | < .001  | 0.769     | 1.3   |
-| Good relationship with colleagues| 0.162                        | 0.028          | 0.105                       | 5.819   | < .001  | 0.788     | 1.269 |
+| Predictor | Coefficient (Unstandardized) | Standard Error | Coefficient (Standardized)a | t | p | Tolerance | VIF |
+|---------|---------|---------|---------|---------|---------|---------|---------|
+| Gender (reference: female) | -0.005 | 0.036 |  | -0.128 | 0.898 | 0.988 | 1.012 |
+| Age (reference \<=35) |  |  |  |  |  |  |  |
+| 36-49 | 0.041 | 0.046 |  | 0.883 | 0.377 | 0.979 | 1.022 |
+| \>=50 | 0.153 | 0.045 |  | 3.399 | \< .001 |  |  |
+| Education | -0.02 | 0.006 | -0.05 | -3.482 | \< .001 | 0.98 | 1.021 |
+| Income | 0.105 | 0.018 | 0.095 | 5.699 | \< .001 | 0.85 | 1.176 |
+| Advancement opportunities | 0.044 | 0.019 | 0.041 | 2.296 | 0.022 | 0.786 | 1.272 |
+| Job security | 0.096 | 0.018 | 0.088 | 5.442 | \< .001 | 0.877 | 1.14 |
+| Interesting job | 0.448 | 0.02 | 0.381 | 22.3 | \< .001 | 0.83 | 1.205 |
+| Independent work | 0.037 | 0.015 | 0.039 | 2.423 | 0.015 | 0.87 | 1.149 |
+| Good relationship with management | 0.356 | 0.025 | 0.263 | 14.278 | \< .001 | 0.769 | 1.3 |
+| Good relationship with colleagues | 0.162 | 0.028 | 0.105 | 5.819 | \< .001 | 0.788 | 1.269 |
 
 : A Standardized coefficients can only be computed for continuous predictors.
 
-## Replication Results 
+## Replication Results
 
-In this chapter, we build on the models developed in the previous sections using the ISSP dataset to explore two key ideas. 
+In this chapter, we build on the models developed in the previous sections using the ISSP dataset to explore two key ideas.
 
-First, we examine whether a model that fits its training data well (i.e., with high explanatory power) also performs well in predicting new data. Second, we assess whether a model trained in one specific context (such as one country) can generalize to different contexts. 
+First, we examine whether a model that fits its training data well (i.e., with high explanatory power) also performs well in predicting new data. Second, we assess whether a model trained in one specific context (such as one country) can generalize to different contexts.
 
-All analyses were conducted in R and later replicated in Python to ensure robustness. Since results were consistent across both environments, in this chapter we report only the R-based plots for clarity. In the Appendix A are reported the results using Phyton. 
+All analyses were conducted in R and later replicated in Python to ensure robustness. Since results were consistent across both environments, in this chapter we report only the R-based plots for clarity. In the Appendix A are reported the results using Phyton.
 
-### Model Variability within Context 
+### Model Variability within Context
 
-To address the first question, we focused on the German dataset and built 1000 models using repeated random sampling. In each replication, we drew a sample of 500 observations, then split it into two equally sized subsets: one for training and one as a holdout set.\ 
+To address the first question, we focused on the German dataset and built 1000 models using repeated random sampling. In each replication, we drew a sample of 500 observations, then split it into two equally sized subsets: one for training and one as a holdout set. 
 
-Each model was trained on its training set, and we computed two in-sample metrics to evaluate explanatory power: R-squared and root mean square error (RMSE). We then used the same model to generate predictions on the holdout set and calculated the out-of-sample RMSE as a measure of predictive power.\ 
+Each model was trained on its training set, and we computed two in-sample metrics to evaluate explanatory power: R-squared and root mean square error (RMSE). We then used the same model to generate predictions on the holdout set and calculated the out-of-sample RMSE as a measure of predictive power. 
 
-Figures 1 and 2 illustrate how these two types of performance relate. In Figure 1, we plot R-squared (x-axis) against out-of-sample RMSE (y-axis); in Figure 2, the x-axis is the in-sample RMSE.\ 
+Figures 1 and 2 illustrate how these two types of performance relate. In Figure 1, we plot R-squared (x-axis) against out-of-sample RMSE (y-axis); in Figure 2, the x-axis is the in-sample RMSE. 
 
-In both plots, we observe that models with similar in-sample performance can vary widely in their out-of-sample predictive accuracy. This means that high explanatory power does not guarantee high predictive power.\ 
+In both plots, we observe that models with similar in-sample performance can vary widely in their out-of-sample predictive accuracy. This means that high explanatory power does not guarantee high predictive power. 
 
-Interestingly, Figure 1 shows that higher R-squared values tend to be associated with higher prediction error, suggesting possible overfitting. Similarly, Figure 2 shows a negative trend between in-sample and out-of-sample RMSE: models that fit the training data very well often perform worse on new data. 
+Interestingly, Figure 1 shows that higher R-squared values tend to be associated with higher prediction error, suggesting possible overfitting. Similarly, Figure 2 shows a negative trend between in-sample and out-of-sample RMSE: models that fit the training data very well often perform worse on new data.
 
-To explore this further, we zoomed in on the models with an R-squared close to that of the original German model (R² between 0.366 and 0.386). Although these models all explain roughly the same proportion of variance, their prediction errors still vary greatly, from 0.75 to 0.94, meaning a 25% increase in error between the best and worst cases. 
+To explore this further, we zoomed in on the models with an R-squared close to that of the original German model (R² between 0.366 and 0.386). Although these models all explain roughly the same proportion of variance, their prediction errors still vary greatly, from 0.75 to 0.94, meaning a 25% increase in error between the best and worst cases.
 
+![\[1a\] Relationship between (in‐sample) R² and out‐of‐sample root mean square error (RMSE) \[1.b\] Relationship between in‐sample RMSE and out‐of‐sample RMSE](images/scatter_plot_usa.png){fig-align="center"}
 
-![\[1a\] Relationship between (in‐sample) R² and out‐of‐sample root mean square error (RMSE) \[1.b\] Relationship between in‐sample RMSE and out‐of‐sample RMSE](images/scatter_plot_usa.png){fig-align="center"} 
- 
+![Density plot of predictive power for subsamples with 0.366 \< R² \< 0.386. RMSE, root mean square error](images/density_usa.png){fig-align="center"}
 
-![Density plot of predictive power for subsamples with 0.366 \< R² \< 0.386. RMSE, root mean square error](images/density_usa.png){fig-align="center"} 
+### Cross Country Generalizability of Predictive Power
 
+In the second part of our analysis, we explore whether a model trained in one country can predict outcomes in other countries. 
 
-### Cross Country Generalizability of Predictive Power 
+We used the full ISSP data for Germany, the USA, and Japan, building one model per country. The bar chart in Figure 4 shows the R-squared of each model on its own country’s data, indicating how well it explains variation within its own context. 
 
-In the second part of our analysis, we explore whether a model trained in one country can predict outcomes in other countries.\ 
+The heatmap in Figure 5 shows the out-of-sample RMSE when each country-specific model is used to predict data from the other countries. This allows us to compare generalizability across contexts. 
 
-We used the full ISSP data for Germany, the USA, and Japan, building one model per country. The bar chart in Figure 4 shows the R-squared of each model on its own country’s data, indicating how well it explains variation within its own context.\ 
+From the results, the Japanese model shows to have the highest R-squared (0.508), meaning it fits its own data well. However, it performs poorly when predicting the USA data, suggesting it may be overfitting to context-specific patterns that don’t transfer. 
 
-The heatmap in Figure 5 shows the out-of-sample RMSE when each country-specific model is used to predict data from the other countries. This allows us to compare generalizability across contexts.\ 
+Furthermore, no other model predicts the Japanese data well, indicating that job satisfaction in Japan may follow idiosyncratic patterns not captured by models trained elsewhere. 
 
-From the results, the Japanese model shows to have the highest R-squared (0.508), meaning it fits its own data well. However, it performs poorly when predicting the USA data, suggesting it may be overfitting to context-specific patterns that don’t transfer.\ 
+The German model has the lowest explanatory power (R² = 0.384), but its data are reasonably well predicted by both the USA and Japan models. This may mean that the German model omits some relevant predictors or suffers from multicollinearity. At the same time, the predictors that matter in the USA and Japan might partially capture variation in the German context.
 
-Furthermore, no other model predicts the Japanese data well, indicating that job satisfaction in Japan may follow idiosyncratic patterns not captured by models trained elsewhere.\ 
+![Ability of each country-specific model to fit its own country data](images/cross_prediction.png){fig-align="center"}
 
-The German model has the lowest explanatory power (R² = 0.384), but its data are reasonably well predicted by both the USA and Japan models. This may mean that the German model omits some relevant predictors or suffers from multicollinearity. At the same time, the predictors that matter in the USA and Japan might partially capture variation in the German context. 
+![Predictive power of country-specific models](images/heatmap_county_predict_country.png){fig-align="center"}
 
+## Extension Results
 
-![Ability of each country-specific model to fit its own country data](images/cross_prediction.png){fig-align="center"} 
+**Figure xx** illustrates the main determinants of job satisfaction, ranked from highest to lowest. Having an interesting job and maintaining a good relationship with management emerge as the strongest determinants, while education ranks among the weaker predictors. The overall ordering of predictors aligns closely with the original model from \[paper xyz\], showing only minor differences in the coefficient values. Although the order and direction of some predictors may vary across countries, these patterns remain consistent with those observed in the original model from \[paper xyz\]. The full set of coefficients across different languages (Python, R, and SmartPLS) is provided in **Table xy** in the appendix.
 
+![Cross-National Comparison of Standardized Regression Coefficients](images/std_coef_ranking.png){fig-align="center"}
 
-![Predictive power of country-specific models](images/heatmap_county_predict_country.png){fig-align="center"} 
+For the NCA analysis, control variables such as age group and gender are excluded because they are categorical. The variables interesting work, income, job security, working independently and opportunities for advancement show no empty zone in the scatter plots, with observations spread across all attribute levels. This indicates that there is no necessary condition for these independent variables. A summary table of all results is provided in the appendix.
 
+In contrast, good relationship with management, good relationship with colleagues, and years of education\*emerge as variables with necessary conditions. All of these variables have 100% ceiling accuracy and effect sizes greater than zero. However, the effect size for relationship with colleagues is 0.042, which is considered too small to be meaningful and can therefore be ignored. Relationship with management shows the highest effect size at 0.125 and is classified as the strongest determinant of job satisfaction. Years of education has an effect size of 0.109, ranking second in NCA.
 
-## Extension Results 
+These findings are further illustrated in Figure zz, where the step function ceiling line (CE-FDH) demonstrates specific threshold requirements for each variable. The left plot shows that achieving maximum job satisfaction requires a minimum relationship with management level of 2. When the relationship with management remains at the lowest level (1), job satisfaction cannot exceed level 4. The right plot reveals similar threshold patterns for education: reaching a job satisfaction level of 4 necessitates at least 8 years of education, while achieving maximum job satisfaction requires a minimum of 9 years of education. Additionally, the data indicates that a minimum threshold of 4 years of education is necessary to have any meaningful effect on job satisfaction.
 
-**Figure xx** illustrates the main determinants of job satisfaction, ranked from highest to lowest. Having an interesting job and maintaining a good relationship with management emerge as the strongest determinants, while education ranks among the weaker predictors. The overall ordering of predictors aligns closely with the original model from \[paper xyz\], showing only minor differences in the coefficient values. Although the order and direction of some predictors may vary across countries, these patterns remain consistent with those observed in the original model from \[paper xyz\]. The full set of coefficients across different languages (Python, R, and SmartPLS) is provided in **Table xy** in the appendix. 
+![NCA Plots](images/NCA_Plot_relevant.png){fig-align="center"}
 
-![Cross-National Comparison of Standardized Regression Coefficients](images/std_coef_ranking.png){fig-align="center"} 
+Comparing these NCA results with standard regression analysis reveals important distinctions. While both relationship with management and years of education demonstrate necessary conditions in NCA, they are classified differently based on their standardized coefficients in traditional analysis. Relationship with management is supported by its high standardized coefficient and is classified as a strong determinant in both approaches. Conversely, years of education is considered an insignificant determinant in standard regression analysis due to its low standardized coefficient, yet NCA reveals it as a necessary condition with meaningful predictive implications.
 
- 
-For the NCA analysis, control variables such as age group and gender are excluded because they are categorical. The variables interesting work, income, job security, working independently and opportunities for advancement show no empty zone in the scatter plots, with observations spread across all attribute levels. This indicates that there is no necessary condition for these independent variables. A summary table of all results is provided in the appendix. 
+This extension enables us not only to identify the significance of determinants based on sufficiency but also to explore whether a condition must be present at all through necessity. This approach highlights that significant determinants can have a necessary condition or not, and the same applies to nonsignificant determinants.
 
-In contrast, good relationship with management, good relationship with colleagues, and years of education*emerge as variables with necessary conditions. All of these variables have 100% ceiling accuracy and effect sizes greater than zero. However, the effect size for relationship with colleagues is 0.042, which is considered too small to be meaningful and can therefore be ignored. Relationship with management shows the highest effect size at 0.125 and is classified as the strongest determinant of job satisfaction. Years of education has an effect size of 0.109, ranking second in NCA. 
+Comparison of OLS regression results and Necessary Condition Analysis (NCA) findings.
 
-These findings are further illustrated in Figure zz, where the step function ceiling line (CE-FDH) demonstrates specific threshold requirements for each variable. The left plot shows that achieving maximum job satisfaction requires a minimum relationship with management level of 2. When the relationship with management remains at the lowest level (1), job satisfaction cannot exceed level 4. The right plot reveals similar threshold patterns for education: reaching a job satisfaction level of 4 necessitates at least 8 years of education, while achieving maximum job satisfaction requires a minimum of 9 years of education. Additionally, the data indicates that a minimum threshold of 4 years of education is necessary to have any meaningful effect on job satisfaction. 
-
-![NCA Plots](images/NCA_Plot_relevant.png){fig-align="center"} 
- 
-Comparing these NCA results with standard regression analysis reveals important distinctions. While both relationship with management and years of education demonstrate necessary conditions in NCA, they are classified differently based on their standardized coefficients in traditional analysis. Relationship with management is supported by its high standardized coefficient and is classified as a strong determinant in both approaches. Conversely, years of education is considered an insignificant determinant in standard regression analysis due to its low standardized coefficient, yet NCA reveals it as a necessary condition with meaningful predictive implications. 
-
-This extension enables us not only to identify the significance of determinants based on sufficiency but also to explore whether a condition must be present at all through necessity. This approach highlights that significant determinants can have a necessary condition or not, and the same applies to nonsignificant determinants. 
-
-Comparison of OLS regression results and Necessary Condition Analysis (NCA) findings. 
-
-| Variable       | OLS Results                  | NCA Results                              | Std. Coefficient | Effect Size |
-|----------------|------------------------------|------------------------------------------|------------------|-------------|
-| rel_mgmt       | significant determinant      | necessary condition with medium effect   | 0.343            | 0.125       |
-| educyrs        | nonsignificant determinant   | necessary condition with medium effect   | -0.018           | 0.109       |
-| rel_clgs       | slightly significant determinant | necessary condition with small effect | 0.143            | 0.042       |
-| interesting    | significant determinant      | no necessary condition                  | 0.433            | 0           |
-| income         | nonsignificant determinant   | no necessary condition                  | 0.089            | 0           |
-| security       | slightly significant determinant | no necessary condition               | 0.075            | 0           |
-| independent    | nonsignificant determinant   | no necessary condition                  | 0.070            | 0           |
-| advancement    | nonsignificant determinant   | no necessary condition                  | 0.021            | 0           |
+| Variable | OLS Results | NCA Results | Std. Coefficient | Effect Size |
+|-------------|-------------|--------------------|-------------|-------------|
+| rel_mgmt | significant determinant | necessary condition with medium effect | 0.343 | 0.125 |
+| educyrs | nonsignificant determinant | necessary condition with medium effect | -0.018 | 0.109 |
+| rel_clgs | slightly significant determinant | necessary condition with small effect | 0.143 | 0.042 |
+| interesting | significant determinant | no necessary condition | 0.433 | 0 |
+| income | nonsignificant determinant | no necessary condition | 0.089 | 0 |
+| security | slightly significant determinant | no necessary condition | 0.075 | 0 |
+| independent | nonsignificant determinant | no necessary condition | 0.070 | 0 |
+| advancement | nonsignificant determinant | no necessary condition | 0.021 | 0 |
 
 : Comparison of OLS Regression Results and NCA Findings
-

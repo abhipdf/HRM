@@ -1,4 +1,21 @@
-# Conclusion and Directions for Future Research 
+# Implications and Conclusions
+
+## Discussion of Key Findings 
+
+The analysis on models developed in similar contexts highlights the importance of jointly evaluating both explanatory and predictive power when assessing a model’s performance. Our goal is to caution researchers against drawing prescriptive conclusions based solely on a model’s in-sample fit, such as R-squared or in-sample RMSE, without verifying how well the model performs on unseen data. 
+
+As we have shown, models that explain a large proportion of variance in the training data do not necessarily perform well in predicting new observations. In fact, we observed that some models with high explanatory power exhibited relatively poor predictive performance, indicating a risk of overfitting.  
+
+A well-designed model should not only provide a good fit to its own data but also be able to generalize to new samples. However, there is no fixed relationship between in-sample metrics (e.g., R-squared, RMSE) and out-of-sample performance, which makes the predictive evaluation an essential step. 
+
+While explanatory modelling focuses on understanding relationships between variables, through the significance, direction, and size of coefficients, predictive modelling aims to accurately forecast new outcomes. These two goals are distinct, but not mutually exclusive.
+
+By adopting an EP (Explanatory and Predictive) approach, researchers can strike a balance: developing models that both explain the data and support reliable prescriptive insights. Ultimately, when the objective is to derive actionable conclusions, predictive power must be explicitly assessed, explanatory power alone is not enough. 
+
+Secondly, by analyzing models developed on datasets contextually different, we show that models trained in one country do not necessarily generalize well to other countries. Patterns that hold in one cultural or institutional context may not apply elsewhere. 
+We emphasize the importance of validating predictive performance across time, populations, or geographies, especially when a model is intended for broader use. Testing models on external data is key to understanding their generalizability and reliability. 
+
+## Conclusion and Directions for Future Research 
 
 To conclude, while we were able to replicate the main results of the original study using R, the outcomes were not identical to those reported in the paper. This highlights a key challenge in replicating research: when data manipulation steps are not fully disclosed, even publicly available datasets and studies become difficult to reproduce with complete accuracy. 
 
@@ -9,3 +26,5 @@ Finally, our extension using NCA offered deeper insights into the model by ident
 This finding has practical implications for business practitioners. In our case, without NCA there is a risk of only focusing on good relationship with management if firms want to maintain job satisfaction while ignoring other variables. However, results of this study show that variables with low standardized coefficients can be important by providing necessity levels for certain outcomes. This approach can result not only in better predictive performance but also improved resource allocation decisions. 
 
 Future research could extend this model framework in several directions. Our work establishes the foundation for determining job satisfaction, which represents an important variable for predicting worker turnover, though this connection was not explored here. A logical next step would be extending this model to worker turnover and using NCA to examine job satisfaction as a necessary condition for turnover outcomes. Researchers applying regression models should follow the framework of checking assumptions of linearity first. Future studies might identify other variables besides job satisfaction, such as organizational commitment, that influence worker turnover. Such results would reveal not only which variables are important but also what necessary conditions are required for specific outcomes. 
+
+ 

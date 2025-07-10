@@ -1,5 +1,11 @@
 # Methodological Approach for Replication and Extension 
 
+## Assumption Testing of Underlying Multiple Regression Analysis 
+
+Prior to model estimation, we conducted diagnostic checks to evaluate whether the fundamental assumptions of multiple linear regression were met. The analysis was performed in JASP (Version 0.19.3) using a pre-processed version of the ISSP 2015 Work Orientations dataset, which had undergone reverse coding and case-wise deletion of missing values. 
+
+To ensure comparability across national contexts, the assumption testing was conducted on the pooled dataset, encompassing observations from the United States, Germany, and Japan. This unified diagnostic approach reflects the focus of our regression analysis on the combined sample. For the sake of parsimony and interpretability, we did not repeat the assumption checks separately for each country. 
+
 ## Replication Across Three Analytical Programs 
 
 Through multiple linear regression we estimated linear models that describe the relationship between job satisfaction and a set of predictors separately for each country, namely USA, Germany, and Japan, and the combined dataset. 
@@ -13,11 +19,7 @@ To better understand how predictive performance behaves under similar levels of 
 
 Finally, to evaluate whether a model developed in one specific context can generalize well if applied to other contexts, we used each country-specific model to predict job satisfaction in the other countries’ datasets, by computing RMSE on unseen data. Since predictions were on standardized scale, they were unstandardized using the training model’s scale and mean to make predictions errors (RMSE) comparable to actual job satisfaction levels in the test country. 
 
- 
-
 ## Data Source and Preprocessing Steps 
-
- 
 
 ### ISSP 2015 Work Orientation Dataset 
 
@@ -65,9 +67,9 @@ In the ISSP survey, higher numerical responses sometimes indicate less favorable
  
 ## Extended Analysis of Determinants 
 
-To determine the most influential independent variable for job satisfaction, standardized coefficients are used for comparison. Following the examination of relationships between dependent and independent variables using these coefficients, NCA proceeds to identify areas in scatter plots that indicate the presence of necessary conditions [@Richter2020]. In our model, the independent variables (X) presented in **Table XX** are treated as potential necessary conditions for Job Satisfaction (Y). This implies that if a necessary condition is not met, failure to achieve the desired outcome is guaranteed. However, NCA examines each variable individually, treating the necessary condition as operating in isolation and independently of context [@Richter2020]. Therefore, the absence of a necessary condition cannot be compensated for by other conditions or determinants. 
+To determine the most influential independent variable for job satisfaction, standardized coefficients are used for comparison. Following the examination of relationships between dependent and independent variables using these coefficients, NCA proceeds to identify areas in scatter plots that indicate the presence of necessary conditions [@Richter2020]. In our model, the independent variables (X) presented in *Table Variables defining Job satisfaction* are treated as potential necessary conditions for Job Satisfaction (Y). This implies that if a necessary condition is not met, failure to achieve the desired outcome is guaranteed. However, NCA examines each variable individually, treating the necessary condition as operating in isolation and independently of context [@Richter2020]. Therefore, the absence of a necessary condition cannot be compensated for by other conditions or determinants. 
 
-NCA uses scatter plots to visualize the necessity relationship between an independent variable and an outcome, dividing the plot into two distinct areas, as shown in **Figure xx**. The area where observations occur is called the total zone (scope), while the area without observations is referred to as the empty zone (ceiling). 
+NCA uses scatter plots to visualize the necessity relationship between an independent variable and an outcome, dividing the plot into two distinct areas, as shown in Figure: "Ceiling Line Chart for Education (Years) as Predictor of Job Satisfaction". The area where observations occur is called the total zone (scope), while the area without observations is referred to as the empty zone (ceiling). 
 
 ![Ceiling Line Chart for Education (Years) as Predictor of Job Satisfaction](images/nca_ceiling_chart_education_modified.png) 
 

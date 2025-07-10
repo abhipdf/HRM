@@ -15,6 +15,10 @@ In assessing the predictive utility of a model, it is crucial to select metrics 
 ### R-squared (R²) 
 
 R-squared quantifies the proportion of variance in the dependent variable that is explained by the independent variables. It serves as a central indicator of in-sample goodness-of-fit and helps assess the strength of association within the estimation dataset [@Sarstedt2021]. R² is widely used due to its intuitive, scale-free interpretation as a percentage (ranging from 0 to 100), making it accessible for communicating how much of the outcome variance is accounted for by the model. However, a high in-sample R² is not necessarily indicative of strong predictive power. Models can exhibit high R² values by overfitting to sample-specific noise, which undermines generalizability to new data [@Sarstedt2021]. 
+
+To assess the explanatory power of a model we rely primarily on the R-squared (R²) metric. R² measures the proportion of variance in the dependent variable that is explained by the independent variables included in the model [@Sarstedt2021]. As such, it offers a concise summary of how well the model fits the data used for estimation. 
+
+We use R² because it provides an intuitive and standardized measure of model fit, expressed as a percentage ranging from 0 to 100. A higher R² suggests that a larger share of outcome variation is captured by the model, making it particularly useful for communicating model performance within the training dataset. Its scale-free nature makes it suitable for comparing models across different samples or contexts. 
  
 ### Root Mean Square Error (RMSE) 
 

@@ -27,8 +27,8 @@ book:
     - 03-main-analysis.qmd
     - 04-results.qmd
     - 05-conclusion.qmd
-    - references.qmd
     - appendix.qmd
+    - references.qmd
 
 format:
   pdf:
